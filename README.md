@@ -81,7 +81,8 @@ and your console crashes try changing to the old IPV6
 [*] Waiting for IPCP configure ACK...
 [*] Waiting for interface to be ready...     
  Restart the exploit process
- 6. If you are on a newly set-up machine you may need to install the latest .Net framework    
+ 6. If you are on a newly set-up machine you may need to install the latest .Net framework       
+ 7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)   
 
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
