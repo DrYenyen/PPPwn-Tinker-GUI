@@ -80,6 +80,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 
 
 # Troubleshooting 
+0. If you get the PPPwned message but no goldhen reformat your usb drive or try another one.   
 1. If the script gets stuck at [*] Waiting for interface to be ready... restart the exploit process
 2. If the script gets stuck at [+] Pinning to CPU XX...done restart the exploit process
 3. If the script is stuck on 
