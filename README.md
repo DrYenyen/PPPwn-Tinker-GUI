@@ -23,9 +23,14 @@ python -m ensurepip --default-pip
 pip install scapy
 ```    
 
+# Downloading the GUI 
+1. Go to releases and download the zip file and extract it to your folder of choice then run the PPPwn Tinker application.  
+2. if Windows Defender flags the zip or any files allow them through.
+This is because GUI  tools house the exploit pppwn which is known by security software https://hackerone.com/reports/2177925   
+
 
 # How to use the new options Corrupt Num, Pin Num and Spray Num
-# Corrupt Num
+#  Corrupt Num
 1. Corrupt Num increases the is the amount of overflow packets sent to the PS4. Enter in hex OR decimal. (Default: 0x1 or 1)
 The reccomended HEX values are 0x1 0x2, 0x4, 0x6, 0x8, 0x10, 0x14, 0x20, 0x30, 0x40 but you are free to test and find out what works best for your console. Ocassionally values too high may cause console crashes work back down to something stable.
 # Pin Num 
@@ -41,11 +46,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 2. Select the firmware version your PS4 is on        
 3. PPPwn version C++ is the default option       
 4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 tick it to use the old IPV6       
-5. You can press the **Run PPPwn** button and on your PS4 press on **test internet connection**       
-6.    
-7.    
-8.   
-9.    
+5. You can press the **Run PPPwn** button and on your PS4 press on **test internet connection**          
       
    
 # PPPwn-Tinker Python Instructions         
@@ -80,6 +81,7 @@ and your console crashes try changing to the old IPV6
 [*] Waiting for IPCP configure ACK...
 [*] Waiting for interface to be ready...
  Restart the exploit process
+ 6. If you are on a newly set-up machine you may need to install the latest .Net framework    
 
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
