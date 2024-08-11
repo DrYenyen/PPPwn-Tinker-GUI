@@ -8,7 +8,6 @@ This tool is open-source and provided as-is. Under the hood it utilizes new func
 Please be sure to read the instructions carefully, and happy Tkintering tinkering!
 far more neutral tone I think
 
-
 # Installing Dependencies 
 1.
 2.
@@ -41,3 +40,16 @@ far more neutral tone I think
 8.
 9.
 
+# Corrupt Num Instructions 
+1.
+2.
+3.
+4.
+
+
+# Spray Num Instructions  
+1.
+2.
+3.
+4.
+5.
