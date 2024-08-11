@@ -9,7 +9,7 @@ Please be sure to read the instructions carefully, and happy Tkintering tinkerin
 far more neutral tone I think
 
 
-#Installing Dependencies 
+# Installing Dependencies 
 1.
 2.
 3.
