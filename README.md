@@ -18,10 +18,10 @@ far more neutral tone I think
 
 # Installing Dependencies Python
 1. Download and install [Python](https://www.python.org/downloads/)
-Make sure to add it to path and install as admin       
-![-](python.PNG)      
-then run the following commands in a CMD window     
-```
+Make sure to add it to path and install as admin           
+![-](python.PNG)         
+2. Then run the following commands in a CMD window        
+```   
 python -m ensurepip --default-pip
 ```    
 ```
