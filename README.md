@@ -5,8 +5,7 @@ At present, PPPwn-Tkinter-GUI was made with Windows in mind. Hopefully this will
 
 This tool is open-source and provided as-is. Under the hood it utilizes new functionality added to PPPwn_cpp by nn9dev with the help of Borris_ta (and is also open source!) 
 
-Please be sure to read the instructions carefully, and happy Tkintering tinkering!
-far more neutral tone I think
+Please be sure to read the instructions carefully, and happy tinkering!
 
 # Installing Dependencies for C++ version
 1. Download and install [Npcap1.79](https://npcap.com/#download)    
@@ -32,28 +31,28 @@ The reccomended DECIMAL values are
 # Spray num
 When spray is higher the scan range is larger. (Default: 0x1000 or 4096)(pending better description)
 
-# PPPwn-Tinker C++ Instructions    
-1.Choose your ethernet interface 
-To find it you can look in 
-Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description
-2. Select the firmware version your PS4 is on 
-3. PPPwn version C++ is the default option
-4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 tick it to use the old IPV6
-5.
-6.
-7.
-8.
-9.
-
-
-# PPPwn-Tinker Python Instructions    
-1.Choose your ethernet interface 
-To find it you can look in 
-Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description
-2. Select the firmware version your PS4 is on
-3. To select the Python version click on the dropdown menu and choose **Python**
-4. Python does not have the option to use the old IPV6.
-5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.
+# PPPwn-Tinker C++ Instructions          
+1. Choose your ethernet interface      
+To find it you can look in        
+Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
+2. Select the firmware version your PS4 is on        
+3. PPPwn version C++ is the default option       
+4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 tick it to use the old IPV6       
+5.    
+6.    
+7.    
+8.   
+9.    
+      
+   
+# PPPwn-Tinker Python Instructions         
+1. Choose your ethernet interface          
+To find it you can look in         
+Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
+2. Select the firmware version your PS4 is on     
+3. To select the Python version click on the dropdown menu and choose **Python**    
+4. Python does not have the option to use the old IPV6.      
+5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.       
 
 
 # Troubleshooting 
