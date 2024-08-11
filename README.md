@@ -4,8 +4,10 @@ PPPwn-Tkinter-GUI was crafted with the goal of extending the functionality of th
 At present, PPPwn-Tkinter-GUI was made with Windows in mind. Hopefully this will be built upon soon. As it stands, there aren't any options to "save" a configuration, but this will also hopefully be added soon.
 
 This tool is open-source and provided as-is. Under the hood it utilizes new functionality added to PPPwn_cpp by nn9dev with the help of Borris_ta (and is also open source!) 
-
+     
 Please be sure to read the instructions carefully, and happy tinkering!
+       
+Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases/tag/1.1-b1), grab the latest release and run pppwn --help to see the additional flags.       
 
 # Installing Dependencies for C++ version
 1. Download and install [Npcap1.79](https://npcap.com/#download)    
