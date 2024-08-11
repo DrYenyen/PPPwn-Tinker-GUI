@@ -78,9 +78,9 @@ and your console crashes try changing to the old IPV6
 [*] Waiting for interface to be ready...
  Restart the exploit process
 
-# Credits 
-[TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)
-[xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)
-[nn9dev for the C++ changes](https://github.com/nn9dev/PPPwn_cpp/releases/tag/1.1-b1)
-[Borris-ta for his help](https://github.com/Borris-ta)
-Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev. 
+# Credits    
+[TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
+[xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)   
+[nn9dev for the C++ changes](https://github.com/nn9dev/PPPwn_cpp/releases/tag/1.1-b1)   
+[Borris-ta for his help](https://github.com/Borris-ta)   
+Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev.    
