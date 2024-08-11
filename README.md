@@ -24,7 +24,7 @@ pip install scapy
 ```    
 
 # Downloading the GUI 
-1. Go to releases and download the zip file and extract it to your folder of choice then run the PPPwn Tinker.exe    
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/V1) download the zip file and extract it to your folder of choice then run the PPPwn Tinker.exe      
 2. if Windows Defender flags the zip or any files allow them through.
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925     
 
