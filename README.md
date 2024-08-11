@@ -8,15 +8,9 @@ This tool is open-source and provided as-is. Under the hood it utilizes new func
 Please be sure to read the instructions carefully, and happy Tkintering tinkering!
 far more neutral tone I think
 
-# Installing Dependencies C++
-1. Download and install 
-2.
-3.
-4.
-5.
-6.
-
-# Installing Dependencies Python
+# Installing Dependencies for C++ version
+1. Download and install [Npcap1.79](https://npcap.com/#download)    
+# Installing Dependencies For Python version
 1. Download and install [Python](https://www.python.org/downloads/)
 Make sure to add it to path and install as admin           
 ![-](python.PNG)         
