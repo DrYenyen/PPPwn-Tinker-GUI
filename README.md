@@ -26,7 +26,8 @@ pip install scapy
 # Downloading the GUI 
 1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/V1) download the zip file and extract it to your folder of choice then run the PPPwn Tinker.exe      
 2. if Windows Defender flags the zip or any files allow them through.
-This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925     
+This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925    
+3. Turn on your PS4 and connect it to your PC via ethernet.     
 
 # Setting up the PS4 internet connection  
 On your PS4  
@@ -74,7 +75,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 3. To select the Python version click on the dropdown menu and choose **Python**    
 4. Python does not have the option to use the old IPV6.      
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
-6. You can press the **Run PPPwn** button           
+6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)   
 
 
