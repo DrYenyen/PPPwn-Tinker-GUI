@@ -62,7 +62,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 2. Select the firmware version your PS4 is on        
 3. PPPwn version C++ is the default option       
 4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 tick it to use the old IPV6 
-5. You can tweak the Num settings in all 3 fields based on the instructions above.    
+5. You can tweak the Num settings in all 3 fields based on the instructions above. Or leave them blank to use the defaults.       
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**        
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)      
       
