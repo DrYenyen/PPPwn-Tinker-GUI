@@ -76,7 +76,8 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 4. Python does not have the option to use the old IPV6.      
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
-7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)   
+7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
+8. Python version will be worked on in the future.    
 
 
 # Troubleshooting 
