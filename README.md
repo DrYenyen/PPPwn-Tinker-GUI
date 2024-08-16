@@ -1,3 +1,10 @@
+# Downloading the GUI       
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/V1) download the zip file and extract it to your folder of choice then run the PPPwn Tinker.exe            
+2. if Windows Defender flags the zip or any files allow them through.    
+This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
+3. Turn on your PS4 and connect it to your PC via ethernet.         
+      
+
 # PPPwn-Tinker-GUI
 PPPwn-Tkinter-GUI was crafted with the goal of extending the functionality of the current PPPwn solutions. By altering the way in which the exploit is deployed and run, one can increase reliability of **Scanning for corrupted object** to nearly 100%. This is often console-dependent, but it's better to experiment than not.
 
@@ -9,11 +16,7 @@ Please be sure to read the instructions carefully, and happy tinkering!
        
 Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases/tag/1.1-b1), grab the latest release and run pppwn --help to see the additional flags.       
 
-# Downloading the GUI       
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/V1) download the zip file and extract it to your folder of choice then run the PPPwn Tinker.exe            
-2. if Windows Defender flags the zip or any files allow them through.    
-This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
-3. Turn on your PS4 and connect it to your PC via ethernet.         
+
       
 # Installing Dependencies for C++ version
 1. Download and install [Npcap1.79](https://npcap.com/#download)    
