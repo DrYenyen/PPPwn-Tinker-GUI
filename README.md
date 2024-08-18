@@ -49,7 +49,7 @@ Find the folder for your firmware and from inside of it copy the payload.bin fil
 Then plug the usb into your PS4         
          
 # How to use the new options Corrupt Num, Pin Num and Spray Num
-#  Corrupt Num
+# Corrupt Num      
 1. Corrupt Num increases the is the amount of overflow packets sent to the PS4. Enter in hex OR decimal. (Default: 0x1 or 1)
 The reccomended HEX values are 0x1 0x2, 0x4, 0x6, 0x8, 0x10, 0x14, 0x20, 0x30, 0x40 but you are free to test and find out what works best for your console. Ocassionally values too high may cause console crashes work back down to something stable.
 # Pin Num 
@@ -58,6 +58,12 @@ The reccomended HEX values are 0x1 0x2, 0x4, 0x6, 0x8, 0x10, 0x14, 0x20, 0x30, 0
 1. When spray is higher the scan range is larger. Enter in hex OR decimal. (Default: 0x1000 or 4096)(pending better description)       
 The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 but you are free to test and find out what works best for your console.
 
+# "The Strat"   
+1. During a quick initial test of the C++ additions by [nn9dev](https://github.com/nn9dev/PiPiPenetrate?tab=readme-ov-file) i accidentally typed in decimal only values Spray Num 1100 and Corrupt Num 20 instead of HEX values 0x1100 and 0x20.          
+2. This led to an extremely quick and highly successful result.     
+3. if you'd like to try this start with Spray Num 1100 in decimal for Corrupt Num 2 in decimal and work around these values to see what works for you.     
+
+       
 # PPPwn-Tinker C++ Instructions          
 1. Choose your ethernet interface      
 To find it you can look in        
