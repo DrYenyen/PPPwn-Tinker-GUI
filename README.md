@@ -117,7 +117,7 @@ and your console crashes try changing to the old IPV6
 # Custom background and icon    
 1. Release 1.1 allows for a custom background and icon to be set instead of the new defaults. Download ->>>  [Release 1.1](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/v1.1)
 2. The icon can be swapped with one of your choice it has to be an the "imgs" folder and be an icon file named "icon".
-3. The background in the GUI can be swapped with one of your choice it has to be in the "imgs" folder and be in "png" format and be named "background".
+3. The background in the GUI can be swapped with one of your choice it has to be in the "imgs" folder and be in "png" format and 600x700 resolution and be named "background".
 
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
