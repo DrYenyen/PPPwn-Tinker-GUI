@@ -114,6 +114,11 @@ and your console crashes try changing to the old IPV6
  6. If you are on a newly set-up machine you may need to install the latest .Net framework       
  7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)   
 
+# Custom background and icon    
+1. Release 1.1 allows for a custom background and icon to be set instead of the new defaults. Download ->>>  [Release 1.1](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/v1.1)
+2. The icon can be swapped with one of your choice it has to be an the "imgs" folder and be an icon file named "icon".
+3. The background in the GUI can be swapped with one of your choice it has to be in the "imgs" folder and be in "png" format and be named "background".
+
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
 [xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)   
