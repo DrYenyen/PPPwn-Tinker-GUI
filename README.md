@@ -19,7 +19,7 @@ Furthermore, the pppwn_cpp additions can be integrated into other pppwn solution
 
       
 # Installing Dependencies for C++ version
-1. Download and install [Npcap1.79](https://npcap.com/#download)    
+1. Download and install [Npcap1.79](https://npcap.com/#download) if running on older hardware try 1.70 and below.
 # Installing Dependencies For Python version
 1. Download and install [Python](https://www.python.org/downloads/)
 Make sure to add it to path and install as admin           
