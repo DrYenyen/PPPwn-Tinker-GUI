@@ -37,7 +37,7 @@ On your PS4
 1. Go to **Settings** and then **Network**   
 2. Select **Set Up Internet connection** and choose Use a **LAN Cable**  
 3. Choose **Custom** setup and choose **PPPoE** for IP Address Settings  
-4. Put in anything as **Username** and ***Password*** 
+4. Put in anything as **Username** and ***Password*** it is recommended for it to be 1 letter that's the same in both fields for better comparability.
 5. Choose **Automatic** for *DNS Settings* and *MTU Settings*
 6. Choose **Do not use** for *Proxy Server*   
 7. Go back and be ready to press on *Test internet connection*       
