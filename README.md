@@ -3,7 +3,7 @@
 2. if Windows Defender flags the zip or any files allow them through.    
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
 3. Turn on your PS4 and connect it to your PC via ethernet.   
-4. Extract all the files to your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
+4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
       
 
 # PPPwn-Tinker-GUI
