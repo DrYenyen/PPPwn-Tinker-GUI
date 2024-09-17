@@ -2,7 +2,8 @@
 1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/V1) download the zip file and extract it to your folder of choice then run the PPPwn Tinker.exe            
 2. if Windows Defender flags the zip or any files allow them through.    
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
-3. Turn on your PS4 and connect it to your PC via ethernet.         
+3. Turn on your PS4 and connect it to your PC via ethernet.   
+4. Extract all the files to your desktop or internal drive Windows doesn't like it running from the Downlaods folder and similar.      
       
 
 # PPPwn-Tinker-GUI
