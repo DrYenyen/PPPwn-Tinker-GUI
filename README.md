@@ -4,6 +4,7 @@
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
 3. Turn on your PS4 and connect it to your PC via ethernet.   
 4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
+5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
       
 
 # PPPwn-Tinker-GUI
@@ -54,8 +55,8 @@ Then plug the usb into your PS4
 1. Corrupt Num increases the is the amount of overflow packets sent to the PS4. Enter in hex OR decimal. (Default: 0x1 or 1)
 The reccomended HEX values are 0x1 0x2, 0x4, 0x6, 0x8, 0x10, 0x14, 0x20, 0x30, 0x40 but you are free to test and find out what works best for your console. Ocassionally values too high may cause console crashes work back down to something stable.
 # Pin Num 
-1. No information about it untested if it helps but is available if you'd like to try. Enter in hex OR decimal. (Default: 0x1000 or 4096)
-# Spray num
+1. No information about it untested if it helps but is available if you'd like to try. Enter in hex OR decimal. (Default: 0x1000 or 4096)   
+# Spray Num
 1. When spray is higher the scan range is larger. Enter in hex OR decimal. (Default: 0x1000 or 4096)(pending better description)       
 The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 but you are free to test and find out what works best for your console.
 
@@ -63,7 +64,17 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
 1. During a quick initial test of the C++ additions by [nn9dev](https://github.com/nn9dev/PiPiPenetrate?tab=readme-ov-file) i accidentally typed in decimal only values Spray Num 1100 and Corrupt Num 20 instead of HEX values 0x1100 and 0x20.          
 2. This led to an extremely quick and highly successful result.     
 3. if you'd like to try this start with Spray Num 1100 in decimal for Corrupt Num 2 in decimal and work around these values to see what works for you.     
-
+       
+# Custom IPV6    
+1. This allows for a custom ipv6 to be used in the following format 4141:4141:4141:4141 or 1e1e:1e1e:1e1e:1e1e      
+2. It has been added for people to Tinker with no strats are known beyond that changing it allows for the exploit to actually work on some consoles.           
+3. Can be set to use the original ipv6 by TheFlow which is 4141:4141:4141:4141 in case the default by Borris-ta gives negative results.      
+4. The fe80:: part of the address is handled internally.                
+       
+# Nice-To-Have additions          
+1. no wait for padi tickbox          
+2. Network settings shortcut button           
+3. CMD ipconfig button     
        
 # PPPwn-Tinker C++ Instructions          
 1. Choose your ethernet interface      
@@ -87,7 +98,8 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
-8. Python version will be worked on in the future.    
+8. Python version is only available for sanity checks and in case of crazy situtations where Windows cannot run the C++ version reliably.     
+9. Python version can be easily edited via notepad++.         
 
 
 # Troubleshooting 
@@ -111,15 +123,15 @@ and your console crashes try changing to the old IPV6
 [*] Sending IPCP configure request...
 [*] Waiting for IPCP configure ACK...
 [*] Waiting for interface to be ready...     
- Restart the exploit process
- 6. If you are on a newly set-up machine you may need to install the latest .Net framework       
- 7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)   
+ Restart the exploit process   
+ 6. If you are on a newly set-up machine you may need to install the latest .Net framework            
+ 7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)         
+      
+# Custom background   
+1. Latest release ships with no background but it can be set via the instructions below.                 
+2. The background in the GUI can be added with one of your choice it has to be in the "imgs" folder and be in "png" format 600x700 resolution and be named "background".              
 
-# Custom background and icon    
-1. Release 1.1 allows for a custom background and icon to be set instead of the new defaults. Download ->>>  [Release 1.1](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/tag/v1.1)
-2. The icon can be swapped with one of your choice it has to be an the "imgs" folder and be an icon file named "icon".
-3. The background in the GUI can be swapped with one of your choice it has to be in the "imgs" folder and be in "png" format and 600x700 resolution and be named "background".
-
+        
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
 [xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)   
