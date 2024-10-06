@@ -16,7 +16,7 @@ This tool is open-source and provided as-is. Under the hood it utilizes new func
      
 Please be sure to read the instructions carefully, and happy tinkering!
        
-Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases/tag/1.1-b1), grab the latest release and run pppwn --help to see the additional flags.       
+Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases), grab the latest release and run pppwn --help to see the additional flags.       
 
 
       
