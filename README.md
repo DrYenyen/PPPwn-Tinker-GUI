@@ -82,7 +82,7 @@ To find it you can look in
 Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
 2. Select the firmware version your PS4 is on        
 3. PPPwn version C++ is the default option       
-4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 tick it to use the old IPV6 
+4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 type 4141:4141:4141:4141 in the custom ipv6 field.   
 5. You can tweak the Num settings in all 3 fields based on the instructions above. Or leave them blank to use the defaults.       
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**        
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)      
@@ -94,7 +94,7 @@ To find it you can look in
 Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
 2. Select the firmware version your PS4 is on     
 3. To select the Python version click on the dropdown menu and choose **Python**    
-4. Python does not have the option to use the old IPV6.      
+4. Python does not have the option to change the ipv6.           
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
