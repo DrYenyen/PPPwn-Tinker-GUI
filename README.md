@@ -143,16 +143,19 @@ and your console crashes try changing to the old IPV6
 
         
 # How to compile GUI source code       
-1. Have python installed and get pyinstaller copy the pyinstaller exe to the same folder as the source code.     
-2. CD into the folder via CMD and compile it using this command  (optional "--icon imgs/icon.ico" after --onefile)    
-```
+1. Have python and npcap installed via the instructions above.        
+2. install pyinstaller copy the pyinstaller exe to the same folder as the source code.       
+2. CD into the folder via CMD and compile it using this command  (optional "--icon imgs/icon.ico" after --onefile)         
+```             
 pyinstaller --noconsole --onefile PPPwnTinker.py 
 ```  
 3. [pyinstaller docs](https://pyinstaller.org/en/stable/)        
-4. Unless changed the GUI then requires the following folders and files 
-5. Bins Stage1 and Stage2 have to be in a folder path of firmawre version followed by stage files example
-* 1100/stage1/stage1.bin
-* 1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX  
+3. npcap and python need to be installed 
+4. Unless changed the GUI then requires the following folders and files        
+* Bins Stage1 and Stage2 have to be in a folder path of firmawre version followed by stage files example     
+* bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
+* bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
+* in the same folder as the GUI pppwn.exe by nn9dev linked below (for all features to work) and TheFlow python pppwn.py and offsets.py       
 
 # For more useful guides and info 
 [Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki)
