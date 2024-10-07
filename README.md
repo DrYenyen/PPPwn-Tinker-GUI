@@ -142,6 +142,13 @@ and your console crashes try changing to the old IPV6
 2. The background in the GUI can be added with one of your choice it has to be in the "imgs" folder and be in "png" format 600x700 resolution and be named "background".              
 
         
+# How to compile GUI source code 
+1. Have python installed and get pyinstaller and copy the exe to the same folder as the source code.
+2. CD into the folder via CMD and using this command  (optional "--icon imgs/icon.ico" after --onefile)
+```
+pyinstaller --noconsole --onefile PPPwn Tinker.py 
+```  
+
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
 [xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)   
