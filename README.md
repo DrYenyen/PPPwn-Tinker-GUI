@@ -143,7 +143,7 @@ and your console crashes try changing to the old IPV6
 
         
 # How to compile GUI source code       
-1. Have python installed and get pyinstaller and copy the pyinstaller exe to the same folder as the source code.     
+1. Have python installed and get pyinstaller copy the pyinstaller exe to the same folder as the source code.     
 2. CD into the folder via CMD and compile it using this command  (optional "--icon imgs/icon.ico" after --onefile)    
 ```
 pyinstaller --noconsole --onefile PPPwnTinker.py 
