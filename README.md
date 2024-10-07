@@ -150,7 +150,8 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 ```  
 3. [pyinstaller docs](https://pyinstaller.org/en/stable/)        
 
-
+# For more useful guides and info 
+[Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki)
 
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
