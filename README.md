@@ -157,7 +157,7 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 * in the same folder as the GUI pppwn.exe by nn9dev linked below (for all features to work) and TheFlow python pppwn.py and offsets.py       
 
 # For more useful guides and info 
-[Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki)
+# [Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki)
 
 # Credits    
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
