@@ -58,7 +58,7 @@ Then plug the usb into your PS4
 # PS4HEN PPPWN support       
 *7.00* to *11.00* Goldhen will be used when available           
 Although it has less features than goldhen        
-![-](imgs/vtx.png)         	 
+![-](img/vtx.png)         	 
          
 # How to use the new options Corrupt Num, Pin Num and Spray Num
 # Corrupt Num      
