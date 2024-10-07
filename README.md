@@ -149,6 +149,10 @@ and your console crashes try changing to the old IPV6
 pyinstaller --noconsole --onefile PPPwnTinker.py 
 ```  
 3. [pyinstaller docs](https://pyinstaller.org/en/stable/)        
+4. Unless changed the GUI then requires the following folders and files 
+5. Bins Stage1 and Stage2 have to be in a folder path of firmawre version followed by stage files example
+* 1100/stage1/stage1.bin
+* 1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX  
 
 # For more useful guides and info 
 [Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki)
