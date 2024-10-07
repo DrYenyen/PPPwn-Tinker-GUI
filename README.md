@@ -49,6 +49,16 @@ Format a usb drive to exFAT
 Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
 Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
 Then plug the usb into your PS4         
+
+     
+# GOLDHEN PPPWN support     
+**Current supported versions**       
+*9.00*  *9.60* *10.00 10.01* and *11.00*           
+    
+# PS4HEN PPPWN support       
+*7.00* to *11.00* Goldhen will be used when available           
+Although it has less features than goldhen        
+![-](imgs/vtx.png)         	 
          
 # How to use the new options Corrupt Num, Pin Num and Spray Num
 # Corrupt Num      
