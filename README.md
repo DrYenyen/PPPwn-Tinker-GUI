@@ -57,7 +57,7 @@ Then plug the usb into your PS4
     
 # PS4HEN PPPWN support       
 *7.00* to *11.00* Goldhen will be used when available           
-Although it has less features than goldhen vtx hen is still good below are the differences       
+Although it has less features than goldhen PS4hen vtx is still good below are the differences       
 ![-](img/vtx.png)         	 
          
 # How to use the new options Corrupt Num, Pin Num and Spray Num
