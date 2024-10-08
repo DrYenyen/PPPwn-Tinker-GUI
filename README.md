@@ -71,7 +71,7 @@ The reccomended HEX values are 0x1 0x2, 0x4, 0x6, 0x8, 0x10, 0x14, 0x20, 0x30, 0
 The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 but you are free to test and find out what works best for your console.
 
 # "The Strat"   
-1. During a quick initial test of the C++ additions by [nn9dev](https://github.com/nn9dev/PiPiPenetrate?tab=readme-ov-file) i accidentally typed in decimal only values Spray Num 1100 and Corrupt Num 20 instead of HEX values 0x1100 and 0x20.          
+1. During a quick initial test of the C++ additions by [nn9dev](https://github.com/nn9dev) i accidentally typed in decimal only values Spray Num 1100 and Corrupt Num 20 instead of HEX values 0x1100 and 0x20.          
 2. This led to an extremely quick and highly successful result.     
 3. if you'd like to try this start with Spray Num 1100 in decimal for Corrupt Num 2 in decimal and work around these values to see what works for you.     
        
