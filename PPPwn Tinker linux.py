@@ -51,41 +51,53 @@ def load_user_choices():
 
 # Builds the CMD command ;/
 # To wait or not to wait that is the PADI :0
+def get_terminal_type():
+    # This function checks the terminal type based on the environment
+    if 'gnome-terminal' in os.environ.get('TERM', ''):
+        return 'gnome'
+    elif 'konsole' in os.environ.get('TERM', ''):
+        return 'konsole'
+    else:
+        return 'unsupported'
+
 def run_command():
     if tick_padi.get() == 1:
         Nowait = "--no-wait-padi"
     else:
         Nowait = ""
-#ipv6 custom by user or new by Borris      
+    
+    # IPv6 custom by user or new by Borris      
     use_ipv6_str = cipv6.get() or "9f9f:41ff:9f9f:41ff"
-#Console firmare selection 
+    
+    # Console firmware selection 
     firmware_to_use = fw_select_as_text.get()
     selected_version = version_as_text.get()
     bin_selection = fw_select_as_text.get()[:-2] + '' + fw_select_as_text.get()[-2:]
-#Inserts chosen Num values or uses default 
+    
+    # Inserts chosen Num values or uses default 
     spray = spray_num.get() or "4096"
     pin = pin_num.get() or "4096"
     corrupt = corrupt_num.get() or "1"
     
     if platform.system() == "Windows":
-         if selected_version == "C++":
+        if selected_version == "C++":
             command = f"pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
-         elif selected_version == "Python":
+        elif selected_version == "Python":
             command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
     elif platform.system() == "Linux":
-        if selected_version == "C++":
-            command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
-            current_directory = os.path.dirname(os.path.abspath(__file__))
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
+        terminal_type = get_terminal_type()  # Get the terminal type
+        if terminal_type == "gnome":
             subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
-        elif selected_version == "Python":
-            command = f"python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
-            current_directory = os.path.dirname(os.path.abspath(__file__))
-            subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
-            
+        elif terminal_type == "konsole":
+            subprocess.Popen(['konsole', '-e', command])
+    else:
+        print("Unsupported terminal type.")
 # Open Network Connections command idk just if someone wants it
 def net_command():
     command = f"ncpa.cpl"
