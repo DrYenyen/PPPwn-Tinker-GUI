@@ -89,6 +89,21 @@ def run_command():
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
     elif platform.system() == "Linux":
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
+
+        terminal_type = None
+        if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
+            terminal_type = "konsole"
+        elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
+            terminal_type = "gnome"
+            
+        if terminal_type == "gnome":
+            subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+        elif terminal_type == "konsole":
+            subprocess.Popen(['konsole', '-e', command])
+        else:
+            print("No supported terminal found.")
 # Open Network Connections command idk just if someone wants it
 def net_command():
     command = f"ncpa.cpl"
