@@ -85,19 +85,10 @@ def run_command():
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
         elif selected_version == "Python":
-            command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
+            command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1=bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
     elif platform.system() == "Linux":
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
-        terminal_type = get_terminal_type()  # Get the terminal type
-        if terminal_type == "gnome":
-            subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
-        elif terminal_type == "konsole":
-            subprocess.Popen(['konsole', '-e', command])
-    else:
-        print("Unsupported terminal type.")
 # Open Network Connections command idk just if someone wants it
 def net_command():
     command = f"ncpa.cpl"
