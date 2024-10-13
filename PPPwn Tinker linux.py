@@ -104,7 +104,7 @@ def run_command():
                 subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
                 subprocess.Popen(['konsole', '-e', command])
-            elif terminal_type == "kxfce4":
+            elif terminal_type == "xfce4":
                     subprocess.Popen(['xfce4-terminal', '-e', command])    
             else:
                 print("No supported terminal found.")
