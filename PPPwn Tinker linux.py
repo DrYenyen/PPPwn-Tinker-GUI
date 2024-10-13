@@ -240,7 +240,7 @@ tickbox.pack(pady=(5, 0))  # Added padding for better spacing
 run_button = tk.Button(root, text="Run PPPwn", command=lambda: [run_command(), save_user_choices()])
 run_button.pack(pady=(10, 10))  # Added padding for better spacing
 
-if platform.system() == "Windows":
+if platform.system() == "Windows":  
     # Open Network Connections 
     net_button = tk.Button(root, text="Open Network Settings", command=net_command)
     net_button.pack(pady=(0, 10))  # Added padding for better spacing
