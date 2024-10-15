@@ -52,7 +52,7 @@ def load_user_choices():
 # Builds the CMD command across Windows and Linux checks for OS and etc along the way ;/
 # To wait or not to wait that is the PADI :0
 def get_terminal_type():
-   
+    # This function checks the terminal type based on the environment
     if 'gnome-terminal' in os.environ.get('TERM', ''):
         return 'gnome'
     elif 'konsole' in os.environ.get('TERM', ''):
@@ -64,73 +64,79 @@ def run_command():
     if tick_padi.get() == 1:
         Nowait = "--no-wait-padi"
     else:
-        Nowait = ""
-    
-          
+        Nowait = ""   
+    # IPv6 custom by user or new by Borris      
     use_ipv6_str = cipv6.get() or "9f9f:41ff:9f9f:41ff"
     
-   
+    # Console firmware selection 
     firmware_to_use = fw_select_as_text.get()
     selected_version = version_as_text.get()
     bin_selection = fw_select_as_text.get()[:-2] + '' + fw_select_as_text.get()[-2:]
     
-   
+    # Inserts chosen Num values or uses default 
     spray = spray_num.get() or "4096"
     pin = pin_num.get() or "4096"
     corrupt = corrupt_num.get() or "1"
     
+    # First check is if its running on windows 
     if platform.system() == "Windows":
-       
+        # Checking if C++ was selected
         if selected_version == "C++":
-          
+            # Runs the command while filling in the choises and values
             command = f"pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
-           
+        # If Python is selected runs the command while filling in the choises and values
         elif selected_version == "Python":
             command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1=bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
+    # if not running on windows checks for Linux (no Mac support ever ;-;)        
+    elif platform.system() == "Linux":
+         # Checking if C++ was selected
+        if selected_version == "C++":
+            current_directory = os.path.dirname(os.path.abspath(__file__)) #Gets current directory info
+            # Runs the command while filling in the choises and values
+            command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
+            terminal_type = None #Starts checking which terminal is running on the device
+            if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
+                terminal_type = "konsole"
+            elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
+                terminal_type = "gnome"
+            elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
+                terminal_type = "xfce4"
 
-        elif platform.system() == "Linux":
-            if selected_version == "C++":
-                current_directory = os.path.dirname(os.path.abspath(__file__))
-                command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
-                terminal_type = None
-                if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
-                    terminal_type = "konsole"
-                elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
-                    terminal_type = "gnome"
-                elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
-                    terminal_type = "xfce4"
+            #Runs the command based on available terminal    
+            if terminal_type == "gnome":  
+                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+            elif terminal_type == "konsole":
+                subprocess.Popen(['konsole', '-e', command])
+            elif terminal_type == "xfce4":
+                    subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])  #This took way too long 
+            else:
+                print("No supported terminal found.")
+        # If Python is selected runs the command while filling in the choises and values        
+        elif selected_version == "Python":
+            current_directory = os.path.dirname(os.path.abspath(__file__))  #Gets current directory info
+            # Runs the command while filling in the choises and values
+            command = f"python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
+            terminal_type = None #Starts checking which terminal is running on the device
+            if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
+                terminal_type = "konsole"
+            elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
+                terminal_type = "gnome"
+            elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
+                terminal_type = "xfce4"
 
-                if terminal_type == "gnome":
-                    subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
-                elif terminal_type == "konsole":
-                    subprocess.Popen(['konsole', '-e', command])
-                elif terminal_type == "xfce4":
-                    subprocess.Popen(['xfce4-terminal', '--hold', '-e', f'bash -c "{command}; exec bash"'])
-                else:
-                    print("No supported terminal found.")
-            elif selected_version == "Python":
-                current_directory = os.path.dirname(os.path.abspath(__file__))
-                command = f"python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
-                terminal_type = None
-                if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
-                    terminal_type = "konsole"
-                elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
-                    terminal_type = "gnome"
-                elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
-                    terminal_type = "xfce4"
-
-                if terminal_type == "gnome":
-                    subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
-                elif terminal_type == "konsole":
-                    subprocess.Popen(['konsole', '-e', command])
-                elif terminal_type == "xfce4":
-                    subprocess.Popen(['xfce4-terminal', '--hold', '-e', f'bash -c "{command}; exec bash"'])
-                else:
-                    print("No supported terminal found.")
+            #Runs the command based on available terminal    
+            if terminal_type == "gnome":  
+                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+            elif terminal_type == "konsole":
+                subprocess.Popen(['konsole', '-e', command])
+            elif terminal_type == "xfce4":
+                    subprocess.Popen(['xfce4-terminal', '--hold', '-e', command]) #This took way too long 
+            else:
+                print("No supported terminal found.")
 
 # Open Network Connections command idk just if someone wants it
 def net_command():
@@ -155,7 +161,7 @@ root = tk.Tk()
 root.geometry('600x700')
 root.title("PPPwn Tinker")
 
-# Interface Selection Windows
+# Interface Selection Windows loaded if on Windows
 if platform.system() == "Windows":
     # Function to execute a command in cmd and save the output to a text file for Windows 
     def execute_command_and_save_output(command, output_file):
@@ -180,7 +186,7 @@ if platform.system() == "Windows":
         interface_dropdown = ttk.Combobox(root, values=interfaces, textvariable=interface_text, state="readonly", width=50)
         interface_dropdown.bind("<<ComboboxSelected>>", on_select)
         interface_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
-# Interface Selection Linux
+# Interface Selection Linux loaded if on Linux
 elif platform.system() == "Linux":
     interface_var = tk.StringVar()
     interfaces = get_network_interfaces()
@@ -240,6 +246,7 @@ tickbox.pack(pady=(5, 0))  # Added padding for better spacing
 run_button = tk.Button(root, text="Run PPPwn", command=lambda: [run_command(), save_user_choices()])
 run_button.pack(pady=(10, 10))  # Added padding for better spacing
 
+#If Windows is the current OS allows for some additional options in the GUI
 if platform.system() == "Windows":
     # Open Network Connections 
     net_button = tk.Button(root, text="Open Network Settings", command=net_command)
