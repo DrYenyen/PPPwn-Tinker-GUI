@@ -52,7 +52,7 @@ def load_user_choices():
 # Builds the CMD command across Windows and Linux checks for OS and etc along the way ;/
 # To wait or not to wait that is the PADI :0
 def get_terminal_type():
-    # This function checks the terminal type based on the environment
+   
     if 'gnome-terminal' in os.environ.get('TERM', ''):
         return 'gnome'
     elif 'konsole' in os.environ.get('TERM', ''):
@@ -66,32 +66,32 @@ def run_command():
     else:
         Nowait = ""
     
-    # IPv6 custom by user or new by Borris      
+          
     use_ipv6_str = cipv6.get() or "9f9f:41ff:9f9f:41ff"
     
-    # Console firmware selection 
+   
     firmware_to_use = fw_select_as_text.get()
     selected_version = version_as_text.get()
     bin_selection = fw_select_as_text.get()[:-2] + '' + fw_select_as_text.get()[-2:]
     
-    # Inserts chosen Num values or uses default 
+   
     spray = spray_num.get() or "4096"
     pin = pin_num.get() or "4096"
     corrupt = corrupt_num.get() or "1"
-    # First check is if its running on windows 
+    
     if platform.system() == "Windows":
-        # Checking if C++ was selected 
+       
         if selected_version == "C++":
-            # Runs the command while filling in the choises and values
+          
             command = f"pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
-            # If Python is selected runs the command while filling in the choises and values
+           
         elif selected_version == "Python":
             command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1=bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
-            # If running on linux 
+
         elif platform.system() == "Linux":
             if selected_version == "C++":
                 current_directory = os.path.dirname(os.path.abspath(__file__))
