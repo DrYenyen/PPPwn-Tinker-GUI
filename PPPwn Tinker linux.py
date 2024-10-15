@@ -105,7 +105,7 @@ def run_command():
             elif terminal_type == "konsole":
                 subprocess.Popen(['konsole', '-e', command])
             elif terminal_type == "xfce4":
-                    subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+                subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
             else:
                 print("No supported terminal found.")
     elif selected_version == "Python":
@@ -124,7 +124,7 @@ def run_command():
         elif terminal_type == "konsole":
             subprocess.Popen(['konsole', '-e', command])
         elif terminal_type == "xfce4":
-                subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
         else:
             print("No supported terminal found.")
 
