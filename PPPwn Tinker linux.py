@@ -108,25 +108,25 @@ def run_command():
                 subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
             else:
                 print("No supported terminal found.")
-    elif selected_version == "Python":
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        command = f"python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
-        terminal_type = None
-        if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
-            terminal_type = "konsole"
-        elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
-            terminal_type = "gnome"
-        elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
-            terminal_type = "xfce4"
-            
-        if terminal_type == "gnome":  
-            subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
-        elif terminal_type == "konsole":
-            subprocess.Popen(['konsole', '-e', command])
-        elif terminal_type == "xfce4":
-            subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
-        else:
-            print("No supported terminal found.")
+        elif selected_version == "Python":
+            current_directory = os.path.dirname(os.path.abspath(__file__))
+            command = f"python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
+            terminal_type = None
+            if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
+                terminal_type = "konsole"
+            elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
+                terminal_type = "gnome"
+            elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
+                terminal_type = "xfce4"
+                
+            if terminal_type == "gnome":  
+                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+            elif terminal_type == "konsole":
+                subprocess.Popen(['konsole', '-e', command])
+            elif terminal_type == "xfce4":
+                subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            else:
+                print("No supported terminal found.")
 
 # Open Network Connections command idk just if someone wants it
 def net_command():
