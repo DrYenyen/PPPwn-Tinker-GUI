@@ -51,15 +51,6 @@ def load_user_choices():
 
 # Builds the CMD command across Windows and Linux checks for OS and etc along the way ;/
 # To wait or not to wait that is the PADI :0
-def get_terminal_type():
-    # This function checks the terminal type based on the environment
-    if 'gnome-terminal' in os.environ.get('TERM', ''):
-        return 'gnome'
-    elif 'konsole' in os.environ.get('TERM', ''):
-        return 'konsole'
-    else:
-        return 'unsupported'
-
 def run_command():
     if tick_padi.get() == 1:
         Nowait = "--no-wait-padi"
