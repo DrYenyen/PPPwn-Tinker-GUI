@@ -3,15 +3,50 @@ from tkinter import ttk
 import os 
 import subprocess
 import re
+from tkinter import filedialog
+import platform
 
-# Function to execute a command in cmd and save the output to a text file
-def execute_command_and_save_output(command, output_file):
-    os.system(f'{command} > {output_file}')
+def get_network_interfaces_unified():
+    if platform.system() == "Windows":
+        #powershell command to get net adapters
+        localPSCommand = ["powershell", "-Command", "Get-NetAdapter | Select-Object InterfaceDescription, InterfaceGuid"]
+        result = subprocess.run(localPSCommand, capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
 
-command = 'pppwn.exe list'
-output_file = 'interfaces.txt'
+        #split the output into lines and remove the header lines
+        lines = result.stdout.strip().splitlines()[2:]
+        ifNames = []
+        ifIds = []
 
-execute_command_and_save_output(command, output_file)
+        # Regex pattern to match lines with the format: <description> <guid>
+        pattern = re.compile(r"^(.*)\s+({[A-F0-9-]+})$")
+
+        for line in lines:
+            match = pattern.match(line)
+            if match:
+                # add the interface name and GUID to respective lists
+                ifNames.append(match.group(1).strip())
+                # Prepend the string "\Device\NPF_" to each GUID so it's all nice for the pppwn command
+                ifIds.append(r"\Device\NPF_" + match.group(2).strip())
+        # Bundle the names and GUIDs into a dictionary
+        interface_dict = dict(zip(ifNames, ifIds))
+
+    elif platform.system() == "Linux":
+        command = "ifconfig -a | sed 's/[ \t].*//;/^$/d'"   # outputs and parses interfaces
+        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        lines = result.stdout.splitlines()
+        ifNames = [line.replace(':', '') for line in lines]
+        ifIds = ifNames.copy()  #ids are the same as the names
+        interface_dict = dict(zip(ifNames,ifIds))
+
+    else:   #macos
+        notSupported = ["Platform not supported."]
+        interface_dict = dict(zip(notSupported,notSupported))
+
+    return interface_dict
+
+def update_dropdown(event):
+    selected_interface = interface_dict.get(interface_dropdown.get())
+    print(f'Selected Interface: {selected_interface}')
 
 #Choose which choices get saved
 def save_user_choices():
@@ -42,34 +77,73 @@ def load_user_choices():
                 tick_padi.set(int(lines[7].strip()))
                 file.close()
 
-# Builds the CMD command ;/
+# Builds the CMD command across Windows and Linux checks for OS and etc along the way ;/
 # To wait or not to wait that is the PADI :0
 def run_command():
     if tick_padi.get() == 1:
-        Nowait = "--no-wait-padi"
+        doNoWaitPadi = "--no-wait-padi"
     else:
-        Nowait = ""
-#ipv6 custom by user or new by Borris      
+        doNoWaitPadi = ""   
+    # IPv6 custom by user or new by Borris      
     use_ipv6_str = cipv6.get() or "9f9f:41ff:9f9f:41ff"
-#Console firmare selection    
+    
+    # Console firmware selection 
     firmware_to_use = fw_select_as_text.get()
     selected_version = version_as_text.get()
     bin_selection = fw_select_as_text.get()[:-2] + '' + fw_select_as_text.get()[-2:]
-#Inserts chosen Num values or uses default 
+    
+    # Inserts chosen Num values or uses default 
     spray = spray_num.get() or "4096"
     pin = pin_num.get() or "4096"
     corrupt = corrupt_num.get() or "1"
-#C++ command
-    if selected_version == "C++":
-        command = f"pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} --auto-retry {Nowait}"
-        subprocess.call(["start", "cmd", "/k", command], shell=True)
-        print(command)
-#Python command
-    elif selected_version == "Python": 
-        command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
-        subprocess.call(["start", "cmd", "/k", command], shell=True)
-        print(command)
+    
+    # First check is if its running on windows 
+    if platform.system() == "Windows":
+        if selected_version == "C++":
+            command = f"pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
+            subprocess.call(["start", "cmd", "/k", command], shell=True)
+            print(command)
+        elif selected_version == "Python":
+            command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1=bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
+            subprocess.call(["start", "cmd", "/k", command], shell=True)
+            print(command)
+    elif platform.system() == "Linux":
+        #check for terminal type
+        terminal_type = None
+        if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
+            terminal_type = "konsole"
+        elif os.path.exists("/usr/bin/gnome-terminal") or os.path.exists("/usr/local/bin/gnome-terminal"):
+            terminal_type = "gnome"
+        elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
+            terminal_type = "xfce4"
 
+        if selected_version == "C++":
+            current_directory = os.path.dirname(os.path.abspath(__file__))
+            command = f"./pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
+                
+            if terminal_type == "gnome":  
+                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+            elif terminal_type == "konsole":
+                subprocess.Popen(['konsole', '--hold', '-e', command])
+            elif terminal_type == "xfce4":
+                subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            else:
+                print("No supported terminal found, launching in background...")    ##untested
+                subprocess.Popen(['bash', command])
+        elif selected_version == "Python":
+            current_directory = os.path.dirname(os.path.abspath(__file__))
+            command = f"python3 pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
+                
+            if terminal_type == "gnome":  
+                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+            elif terminal_type == "konsole":
+                subprocess.Popen(['konsole', '--hold', '-e', command])
+            elif terminal_type == "xfce4":
+                subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            else:
+                print("No supported terminal found, launching in background...")    ##untested
+                subprocess.Popen(['bash', command])
+        print(command)
 
 # Open Network Connections command idk just if someone wants it
 def net_command():
@@ -93,21 +167,9 @@ def on_select(event):
 root = tk.Tk()
 root.geometry('600x700')
 root.title("PPPwn Tinker")
-root.iconbitmap('imgs/icon.ico')
 
-# Load background image
-if os.path.exists("imgs/background.png"):
-    background_image = tk.PhotoImage(file="imgs/background.png")
-    background_label = tk.Label(root, image=background_image)
-    background_label.place(relwidth=1, relheight=1)
-
-# Interface Selection
-with open('interfaces.txt', 'r') as file:
-    text = file.read()
-    ids = re.findall(r'\\Device\\NPF_\{[^}]+\}', text)
-    names = re.findall(r'\\Device\\NPF_[^}]+\} (.+)', text)
-
-interface_dict = dict(zip(names, ids))
+# Interface Selection Windows loaded if on Windows
+interface_dict = get_network_interfaces_unified()
 
 interfaces = list(interface_dict.keys())
 interface_text = tk.StringVar(root)
@@ -168,13 +230,15 @@ tickbox.pack(pady=(5, 0))  # Added padding for better spacing
 run_button = tk.Button(root, text="Run PPPwn", command=lambda: [run_command(), save_user_choices()])
 run_button.pack(pady=(10, 10))  # Added padding for better spacing
 
-# Open Network Connections 
-net_button = tk.Button(root, text="Open Network Settings", command=net_command)
-net_button.pack(pady=(0, 10))  # Added padding for better spacing)
+#If Windows is the current OS allows for some additional options in the GUI
+if platform.system() == "Windows":
+    # Open Network Connections 
+    net_button = tk.Button(root, text="Open Network Settings", command=net_command)
+    net_button.pack(pady=(0, 10))  # Added padding for better spacing
 
-# Open ipconfig 
-ip_button = tk.Button(root, text="Show current IP info", command=ip_command)
-ip_button.pack(pady=(0, 10))  # Added padding for better spacing)
+    # Open ipconfig 
+    ip_button = tk.Button(root, text="Show current IP info", command=ip_command)
+    ip_button.pack(pady=(0, 10))  # Added padding for better spacing
 
 
 # Load user choices on startup
