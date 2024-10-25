@@ -31,7 +31,7 @@ def get_network_interfaces_unified():
         interface_dict = dict(zip(ifNames, ifIds))
 
     elif platform.system() == "Linux":
-        command = "ifconfig -a | sed 's/[ \t].*//;/^$/d'"   # outputs and parses interfaces
+        command = "ip link show | awk -F': ' '{print $2}'"   # outputs and parses interfaces
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         lines = result.stdout.splitlines()
         ifNames = [line.replace(':', '') for line in lines]
