@@ -119,11 +119,10 @@ def run_command():
             terminal_type = "xfce4"
 
         if selected_version == "C++":
-            current_directory = os.path.dirname(os.path.abspath(__file__))
             command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
                 
             if terminal_type == "gnome":  
-                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+                subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
                 subprocess.Popen(['konsole', '--hold', '-e', command])
             elif terminal_type == "xfce4":
@@ -132,11 +131,10 @@ def run_command():
                 print("No supported terminal found, launching in background...")    ##untested
                 subprocess.Popen(['bash', command])
         elif selected_version == "Python":
-            current_directory = os.path.dirname(os.path.abspath(__file__))
             command = f"python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
                 
             if terminal_type == "gnome":  
-                subprocess.Popen(['gnome-terminal', '--working-directory', current_directory, '--', 'bash', '-c', command + '; exec bash'])
+                subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
                 subprocess.Popen(['konsole', '--hold', '-e', command])
             elif terminal_type == "xfce4":
