@@ -170,15 +170,22 @@ root.geometry('600x700')
 root.title("PPPwn Tinker")
 
 # Interface Selection Windows loaded if on Windows
-interface_dict = get_network_interfaces_unified()
-
-interfaces = list(interface_dict.keys())
-interface_text = tk.StringVar(root)
-interface_label = tk.Label(root, text="Select Interface:")
-interface_label.pack()
-interface_dropdown = ttk.Combobox(root, values=interfaces, textvariable=interface_text, state="readonly", width=50)
-interface_dropdown.bind("<<ComboboxSelected>>", on_select)
-interface_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
+if platform.system() == "Windows":
+    interface_dict = get_network_interfaces_unified()
+    interfaces = list(interface_dict.keys())
+    interface_text = tk.StringVar(root)
+    interface_label = tk.Label(root, text="Select Interface:")
+    interface_label.pack()
+    interface_dropdown = ttk.Combobox(root, values=interfaces, textvariable=interface_text, state="readonly", width=50)
+    interface_dropdown.bind("<<ComboboxSelected>>", on_select)
+    interface_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
+elif platform.system() == "Linux":
+    interface_var = tk.StringVar()
+    interfaces = get_network_interfaces_unified()
+    
+    interface_dropdown = ttk.Combobox(root, textvariable=interface_var, values=interfaces, state="readonly")
+    interface_dropdown.bind("<<ComboboxSelected>>", update_dropdown)
+    interface_dropdown.pack(pady=20)    
 
 # Firmware Selection
 firmwaresList = ["1100", "1071", "1070", "1050", "1001", "1000", "960", "951", "950", "904", "903", "900", "852", "850", "803", "801", "800", "755", "751", "750", "702", "700"]
