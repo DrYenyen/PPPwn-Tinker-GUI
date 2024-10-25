@@ -180,6 +180,7 @@ if platform.system() == "Windows":
     interface_dropdown.bind("<<ComboboxSelected>>", on_select)
     interface_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
 elif platform.system() == "Linux":
+    interface_dict = get_network_interfaces_unified()
     interface_var = tk.StringVar()
     interfaces = get_network_interfaces_unified()
     
