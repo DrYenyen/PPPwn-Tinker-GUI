@@ -30,13 +30,14 @@ def get_network_interfaces_unified():
         # Bundle the names and GUIDs into a dictionary
         interface_dict = dict(zip(ifNames, ifIds))
 
-    elif platform.system() == "Linux":
-        command = "ip link show | awk -F': ' '{print $2}'"   # outputs and parses interfaces
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
-        lines = result.stdout.splitlines()
-        ifNames = [line.replace(':', '') for line in lines]
-        ifIds = ifNames.copy()  #ids are the same as the names
-        interface_dict = dict(zip(ifNames,ifIds))
+    elif platform.system() == "Linux":   
+        result = subprocess.run(['ip', 'link', 'show'], capture_output=True, text=True)
+        interfaces = []
+        for line in result.stdout.splitlines():
+            if ':' in line:
+                interface = line.split(':')[1].strip()
+                interfaces.append(interface)
+        return interfaces
 
     else:   #macos
         notSupported = ["Platform not supported."]
