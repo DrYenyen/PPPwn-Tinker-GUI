@@ -91,7 +91,7 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
 3. CMD ipconfig button     
        
 # Windows Instructions    
-1. Then double-click on PPPwn Tinker.exe                       
+1. Double-click on PPPwn Tinker.exe                       
 2. Turn on your PS4 and connect it to your PC via ethernet.
     
 # PPPwn-Tinker C++ Instructions            
