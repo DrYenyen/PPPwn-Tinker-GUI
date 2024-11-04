@@ -20,6 +20,7 @@ Furthermore, the pppwn_cpp additions can be integrated into other pppwn solution
 
 # Linux needs no additional dependencies.    
      
+# Windows Dependencies   
 # Installing Dependencies for C++ version
 1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.    
 # Installing Dependencies for Rust     
