@@ -138,7 +138,7 @@ def run_command():
             print(command)   
 
         elif selected_version == "Rust":
-            command = f"sudo ./yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1 bins/{bin_selection}/stage1/stage1.bin --stage-2 bins/{bin_selection}/stage2/stage2.bin"     
+            command = f"sudo ./yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1 bins/{bin_selection}/stage1/stage1.bin --stage-2 bins/{bin_selection}/stage2/stage2.bin -r 100"     
             if terminal_type == "gnome":  
                 subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
