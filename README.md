@@ -202,7 +202,7 @@ and your console crashes try changing to the old IPV6
 2. The background in the GUI can be added with one of your choice it has to be in the "imgs" folder and be in "png" format 600x700 resolution and be named "background".              
 
         
-# How to compile GUI source code       
+# How to compile GUI source code Windows        
 1. Have python and npcap installed via the instructions above.        
 2. install pyinstaller copy the pyinstaller exe to the same folder as the source code.       
 3. CD into the folder via CMD and compile it using this command  (optional "--icon imgs/icon.ico" after --onefile)         
@@ -216,12 +216,16 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 * bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
 * in the same folder as the GUI pppwn.exe by nn9dev linked below (for all features to work) and TheFlow python pppwn.py and offsets.py       
 
+# How to compile GUI source code Linux    
+1. Coming soon
+
 # For more useful guides and info 
 # [Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki)
 
 # Credits    
-[TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)      
-[xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)   
-[nn9dev for the C++ changes](https://github.com/nn9dev/PPPwn_cpp)   
-[Borris-ta for his help](https://github.com/Borris-ta)   
-Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev.    
+[TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)              
+[xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)        
+[nn9dev for the C++ changes](https://github.com/nn9dev/PPPwn_cpp)        
+[fbuoncom for Rust Rewrite](https://github.com/fedebuonco)     
+[Borris-ta for his help](https://github.com/Borris-ta)        
+Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev.        
