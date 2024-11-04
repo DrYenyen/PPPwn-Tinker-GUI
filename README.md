@@ -1,26 +1,14 @@
 # Downloading the GUI Windows        
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then double-click on PPPwn Tinker.exe                    
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Windows version and extract all the files to your folder of choice                 
 2. if Windows Defender flags the zip or any files allow them through.              
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925              
-3. Turn on your PS4 and connect it to your PC via ethernet.        
-4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.         
-5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.         
-6. Or try out the new Rust version!     
-7. Read below for further instructions      
+3. Turn on your PS4 and connect it to your PC via ethernet.         
 
 # Downloading the GUI Linux        
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice    
-2. In the directory where the files have been extracted open a terminal and run         
-```
-sudo chmod 777 *
-```       
-3. Then double-click on PPPwn Tinker.bin                 
-4. Turn on your PS4 and connect it to your PC via ethernet.      
-5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.  
-6. Or try out the new Rust version! 
-7. Read below for further instructions  
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Linux version and extract all the files to your folder of choice        
+2. Turn on your PS4 and connect it to your PC via ethernet.         
       
-
+	
 # PPPwn-Tinker-GUI
 PPPwn-Tkinter-GUI was crafted with the goal of extending the functionality of the current PPPwn solutions. By altering the way in which the exploit is deployed and run, one can increase reliability of **Scanning for corrupted object** to nearly 100%. This is often console-dependent, but it's better to experiment than not.
 
@@ -102,13 +90,8 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
 3. CMD ipconfig button     
        
 # Windows Instructions    
-# Downloading the GUI Windows    
-# 1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract it to your folder of choice then run the PPPwn Tinker.exe                
-2. if Windows Defender flags the zip or any files allow them through.    
-This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
-3. Turn on your PS4 and connect it to your PC via ethernet.   
-4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
-5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
+1. Then double-click on PPPwn Tinker.exe                       
+2. Turn on your PS4 and connect it to your PC via ethernet.
     
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface      
@@ -145,9 +128,14 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 8. Python version is only available for sanity checks and in case of crazy situtations where Windows cannot run the C++ or Rust versions reliably.   
 9. Python version can be easily edited notepad++ and etc.          
 
-# Linux Instructions    
+# Linux Instructions      
+1. In the directory where the files have been extracted open a terminal and run         
+```
+sudo chmod 777 *
+```       
+2. Then double-click on PPPwn Tinker.bin                 
+3. Turn on your PS4 and connect it to your PC via ethernet.      
        
-1. Remember to chmod the directory where the files have been extracted to.   
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface usually starts with "enp"          
 2. Select the firmware version your PS4 is on        
