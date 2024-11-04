@@ -1,20 +1,24 @@
-# Downloading the GUI Windows    
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then double-click on PPPwn Tinker.exe                
-2. if Windows Defender flags the zip or any files allow them through.    
-This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
-3. Turn on your PS4 and connect it to your PC via ethernet.   
-4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
-5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
+# Downloading the GUI Windows        
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then double-click on PPPwn Tinker.exe                    
+2. if Windows Defender flags the zip or any files allow them through.              
+This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925              
+3. Turn on your PS4 and connect it to your PC via ethernet.        
+4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.         
+5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.         
+6. Or try out the new Rust version!     
+7. Read below for further instructions      
 
-# Downloading the GUI Linux    
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice
-2. In the directory where the files have been extracted open a terminal and run 
+# Downloading the GUI Linux        
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice    
+2. In the directory where the files have been extracted open a terminal and run         
 ```
 sudo chmod 777 *
-```  
+```       
 3. Then double-click on PPPwn Tinker.bin                 
-3. Turn on your PS4 and connect it to your PC via ethernet.      
-5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
+4. Turn on your PS4 and connect it to your PC via ethernet.      
+5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.  
+6. Or try out the new Rust version! 
+7. Read below for further instructions  
       
 
 # PPPwn-Tinker-GUI
