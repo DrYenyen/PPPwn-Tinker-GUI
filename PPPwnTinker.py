@@ -104,10 +104,15 @@ def run_command():
             command = f"pppwn --interface {interface_dict.get(interface_dropdown.get())} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
+        elif selected_version == "Rust":
+            command = f"yapppwn.exe --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage-1=bins/{bin_selection}/stage1/stage1.bin --stage-2=bins/{bin_selection}/stage2/stage2.bin -r 100"
+            subprocess.call(["start", "cmd", "/k", command], shell=True)
+            print(command)    
         elif selected_version == "Python":
             command = f"python pppwn.py --interface={interface_dict.get(interface_dropdown.get())} --fw={firmware_to_use} --stage1=bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
             subprocess.call(["start", "cmd", "/k", command], shell=True)
             print(command)
+
     elif platform.system() == "Linux":
         #check for terminal type
         terminal_type = None
@@ -130,6 +135,21 @@ def run_command():
             else:
                 print("No supported terminal found, launching in background...")    ##untested
                 subprocess.Popen(['bash', command])
+            print(command)   
+
+        elif selected_version == "Rust":
+            command = f"sudo yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1 bins/{bin_selection}/stage1/stage1.bin --stage-2 bins/{bin_selection}/stage2/stage2.bin"     
+            if terminal_type == "gnome":  
+                subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
+            elif terminal_type == "konsole":
+                subprocess.Popen(['konsole', '--hold', '-e', command])
+            elif terminal_type == "xfce4":
+                subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            else:
+                print("No supported terminal found, launching in background...")    ##untested
+                subprocess.Popen(['bash', command])
+            print(command)
+
         elif selected_version == "Python":
             command = f"sudo python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin"
                 
@@ -142,7 +162,7 @@ def run_command():
             else:
                 print("No supported terminal found, launching in background...")    ##untested
                 subprocess.Popen(['bash', command])
-        print(command)
+            print(command)
 
 # Open Network Connections command idk just if someone wants it
 def net_command():
@@ -196,7 +216,7 @@ fw_dropdown = ttk.Combobox(root, textvariable=fw_select_as_text, values=firmware
 fw_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
 
 # Version Selection
-versionsList = ["C++", "Python"]
+versionsList = ["C++", "Rust", "Python"]
 version_as_text = tk.StringVar(root)
 version_as_text.set(versionsList[0])  # Default selection
 version_label = tk.Label(root, text="Select PPPwn Version")
