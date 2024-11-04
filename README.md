@@ -214,7 +214,7 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 * Bins Stage1 and Stage2 have to be in a folder path of firmawre version followed by stage files example     
 * bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
 * bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
-* in the same folder as the GUI pppwn.exe by nn9dev linked below (for all features to work) and TheFlow python pppwn.py and offsets.py       
+* in the same folder as the GUI pppwn.exe by nn9dev the Rust rewrite by fedebuonco and TheFlow python pppwn.py and offsets.py       
 
 # How to compile GUI source code Linux    
 1. Coming soon
@@ -226,6 +226,6 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)              
 [xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)        
 [nn9dev for the C++ changes](https://github.com/nn9dev/PPPwn_cpp)        
-[fbuoncom for Rust Rewrite](https://github.com/fedebuonco)     
+[fedebuonco for Rust Rewrite](https://github.com/fedebuonco)     
 [Borris-ta for his help](https://github.com/Borris-ta)        
 Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev.        
