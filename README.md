@@ -1,10 +1,12 @@
 # Downloading the GUI Windows        
 1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Windows version and extract all the files to your folder of choice                 
 2. if Windows Defender flags the zip or any files allow them through.              
-This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925                   
+This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925              
+3. Turn on your PS4 and connect it to your PC via ethernet.         
 
 # Downloading the GUI Linux        
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Linux version and extract all the files to your folder of choice               
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Linux version and extract all the files to your folder of choice        
+2. Turn on your PS4 and connect it to your PC via ethernet.         
       
 	
 # PPPwn-Tinker-GUI
