@@ -214,7 +214,7 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 * Bins Stage1 and Stage2 have to be in a folder path of firmawre version followed by stage files example     
 * bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
 * bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
-* in the same folder as the GUI pppwn.exe by nn9dev the Rust rewrite by fedebuonco and TheFlow python pppwn.py and offsets.py       
+* in the same folder as the GUI pppwn.exe by nn9dev the Rust rewrite by fedebuonco and TheFlow python pppwn.py and offsets.py all linked below     
 
 # How to compile GUI source code Linux    
 1. Coming soon
