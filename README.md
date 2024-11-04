@@ -165,7 +165,7 @@ sudo chmod 777 *
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
-8. Python version is only available for sanity checks and in case of crazy situtations where Linux cannot run the C++ or Rust versions reliably.     
+8. Python version is only available for sanity checks and in case of crazy unheard of situtations where Linux cannot run the C++ or Rust versions reliably.     
 9. Python version can be easily edited via notepad++ and etc.  
 
 
