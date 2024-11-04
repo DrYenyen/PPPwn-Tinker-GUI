@@ -57,7 +57,7 @@ Then plug the usb into your PS4
      
 # GOLDHEN PPPWN support     
 **Current supported versions**       
-*9.00*  *9.60* *10.00 10.01* and *11.00*           
+*9.00*  *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
     
 # PS4HEN PPPWN support       
 *7.00* to *11.00* Goldhen will be used when available           
