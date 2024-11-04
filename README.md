@@ -1,35 +1,40 @@
-# Downloading the GUI       
-# 1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract it to your folder of choice then run the PPPwn Tinker.exe                
+# Downloading the GUI Windows    
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then run the PPPwn Tinker.exe                
 2. if Windows Defender flags the zip or any files allow them through.    
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
 3. Turn on your PS4 and connect it to your PC via ethernet.   
 4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
+5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
+
+# Downloading the GUI Linux    
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then run the PPPwn Tinker.bin                   
+3. Turn on your PS4 and connect it to your PC via ethernet.      
 5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
       
 
 # PPPwn-Tinker-GUI
 PPPwn-Tkinter-GUI was crafted with the goal of extending the functionality of the current PPPwn solutions. By altering the way in which the exploit is deployed and run, one can increase reliability of **Scanning for corrupted object** to nearly 100%. This is often console-dependent, but it's better to experiment than not.
 
-At present, PPPwn-Tkinter-GUI was made with Windows in mind. Hopefully this will be built upon soon. As it stands, there aren't any options to "save" a configuration, but this will also hopefully be added soon.
-
-This tool is open-source and provided as-is. Under the hood it utilizes new functionality added to PPPwn_cpp by nn9dev with the help of Borris_ta (and is also open source!) 
+This tool is open-source and provided as-is. Under the hood it utilizes new functionality added [to PPPwn_cpp by nn9dev](https://github.com/nn9dev) with the help of Borris_ta (and is also open source!) and additionally a [Rust rewrite made by fedebuonco](https://github.com/fedebuonco/YAPPPWN) that is quickly becoming a great way to run the exploit. It also allows you to run the [original version made by TheFlow](https://github.com/TheOfficialFloW/PPPwn/)     
      
 Please be sure to read the instructions carefully, and happy tinkering!
        
 Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases), grab the latest release and run pppwn --help to see the additional flags.       
 
-
-      
+# Linux needs no additional dependencies.    
+     
 # Installing Dependencies for C++ version
-1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.
-# Installing Dependencies For Python version
-1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.
-2. Download and install [Python](https://www.python.org/downloads/)
-Make sure to add it to path and install as admin           
+1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.    
+# Installing Dependencies for Rust     
+1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.        
+# Installing Dependencies For Python version     
+1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.       
+2. Download and install [Python](https://www.python.org/downloads/)        
+Make sure to add it to path and install as admin             
 ![-](python.PNG)         
-3. Then run the following commands in a CMD window        
+3. Then run the following commands in a CMD window           
 ```   
-python -m ensurepip --default-pip
+python -m ensurepip --default-pip   
 ```    
 ```
 pip install scapy
@@ -88,6 +93,13 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
 3. CMD ipconfig button     
        
 # Windows Instructions    
+# Downloading the GUI Windows    
+# 1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract it to your folder of choice then run the PPPwn Tinker.exe                
+2. if Windows Defender flags the zip or any files allow them through.    
+This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
+3. Turn on your PS4 and connect it to your PC via ethernet.   
+4. Extract all the files to a folder on your desktop or internal drive Windows doesn't like it running from the Download folder and similar.      
+5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
     
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface      
@@ -125,7 +137,8 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 9. Python version can be easily edited notepad++ and etc.          
 
 # Linux Instructions    
-    
+       
+1. Remember to chmod the directory where the files have been extracted to.   
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface usually starts with "enp"          
 2. Select the firmware version your PS4 is on        
