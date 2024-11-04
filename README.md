@@ -1,5 +1,5 @@
 # Downloading the GUI Windows    
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then run the PPPwn Tinker.exe                
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then double-click on PPPwn Tinker.exe                
 2. if Windows Defender flags the zip or any files allow them through.    
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925         
 3. Turn on your PS4 and connect it to your PC via ethernet.   
@@ -7,7 +7,9 @@ This is because GUI  tools house the the exploit  which is known by security sof
 5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
 
 # Downloading the GUI Linux    
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice then run the PPPwn Tinker.bin                   
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest version and extract all the files to your folder of choice
+2. In the directory where the files have been extracted open a terminal and run chmod 777 *
+3. Then double-click on PPPwn Tinker.bin                 
 3. Turn on your PS4 and connect it to your PC via ethernet.      
 5. It is reccomended to use the C++ implementation unless fully unable to get past Stage2 or Stage4.     
       
