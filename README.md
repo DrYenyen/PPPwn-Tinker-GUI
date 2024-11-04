@@ -87,7 +87,9 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
 2. Network settings shortcut button           
 3. CMD ipconfig button     
        
-# PPPwn-Tinker C++ Instructions          
+# Windows Instructions    
+    
+# PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface      
 To find it you can look in        
 Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
@@ -98,6 +100,16 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**        
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)      
       
+# PPPwn-Tinker Rust Instructions
+1. Choose your ethernet interface          
+To find it you can look in         
+Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
+2. Select the firmware version your PS4 is on 
+3. To select the Rust version click on the dropdown menu and choose **Rust**    
+4. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**       
+5. The Rust version will receive further improvements when possible.                
+5. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)      
+
    
 # PPPwn-Tinker Python Instructions         
 1. Choose your ethernet interface          
@@ -109,11 +121,46 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
-8. Python version is only available for sanity checks and in case of crazy situtations where Windows cannot run the C++ version reliably.     
-9. Python version can be easily edited via notepad++.         
+8. Python version is only available for sanity checks and in case of crazy situtations where Windows cannot run the C++ or Rust versions reliably.   
+9. Python version can be easily edited notepad++ and etc.          
+
+# Linux Instructions    
+    
+# PPPwn-Tinker C++ Instructions            
+1. Choose your ethernet interface usually starts with "enp"          
+2. Select the firmware version your PS4 is on        
+3. PPPwn version C++ is the default option       
+4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 type 4141:4141:4141:4141 in the custom ipv6 field.   
+5. You can tweak the Num settings in all 3 fields based on the instructions above. Or leave them blank to use the defaults.       
+6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**        
+7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)      
+      
+	  
+	  
+# PPPwn-Tinker Rust Instructions        
+1. Choose your ethernet interface usually starts with "enp"              
+2. Select the firmware version your PS4 is on            
+3. To select the Rust version click on the dropdown menu and choose **Rust**    
+4. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**       
+5. The Rust version will receive further improvements when possible.                
+5. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)             
+      
+   
+# PPPwn-Tinker Python Instructions             
+1. Choose your ethernet interface usually starts with "enp"            
+2. Select the firmware version your PS4 is on                
+3. To select the Python version click on the dropdown menu and choose **Python**          
+4. Python does not have the option to change the ipv6.               
+5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
+6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
+7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
+8. Python version is only available for sanity checks and in case of crazy situtations where Linux cannot run the C++ or Rust versions reliably.     
+9. Python version can be easily edited via notepad++ and etc.  
 
 
-# Troubleshooting 
+
+
+# Quick Troubleshooting 
 0. If you get the PPPwned message but no goldhen reformat your usb drive or try another one.   
 1. If the script gets stuck at [*] Waiting for interface to be ready... restart the exploit process
 2. If the script gets stuck at [+] Pinning to CPU XX...done restart the exploit process
@@ -136,7 +183,8 @@ and your console crashes try changing to the old IPV6
 [*] Waiting for interface to be ready...     
  Restart the exploit process   
  6. If you are on a newly set-up machine you may need to install the latest .Net framework            
- 7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)         
+ 7. For more see [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
+ 8. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)            
       
 # Custom background   
 1. Latest release ships with no background but it can be set via the instructions below.                 
