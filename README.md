@@ -18,10 +18,11 @@ Please be sure to read the instructions carefully, and happy tinkering!
        
 Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases), grab the latest release and run pppwn --help to see the additional flags.       
 
-# Linux needs no additional dependencies.    
+# Linux dependencies.
+1. Scapy only if using the Python version.       
      
-# Windows Dependencies needed are listed below for each version   
-# Installing Dependencies for C++ version
+# Windows Dependencies needed are listed below for each version        
+# Installing Dependencies for C++ version     
 1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.    
 # Installing Dependencies for Rust     
 1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.        
