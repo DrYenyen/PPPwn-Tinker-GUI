@@ -39,23 +39,6 @@ python -m ensurepip --default-pip
 pip install scapy
 ```    
      
-# Setting up the PS4 internet connection  
-On your PS4  
-1. Go to **Settings** and then **Network**   
-2. Select **Set Up Internet connection** and choose Use a **LAN Cable**  
-3. Choose **Custom** setup and choose **PPPoE** for IP Address Settings  
-4. Put in anything as **Username** and ***Password*** it is recommended for it to be 1 letter that's the same in both fields for better compatibility.
-5. Choose **Automatic** for *DNS Settings* and *MTU Settings*
-6. Choose **Do not use** for *Proxy Server*   
-7. Go back and be ready to press on *Test internet connection*       
-      
-# Putting the goldhen or VTX payload on a usb        
-Format a usb drive to exFAT               
-Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
-Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
-Then plug the usb into your PS4         
-
-     
 # GOLDHEN PPPWN support     
 **Current supported versions**       
 *9.00*  *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
@@ -93,8 +76,24 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
        
 # Windows Instructions    
 1. Double-click on PPPwn Tinker.exe                       
-2. Turn on your PS4 and connect it to your PC via ethernet.
-    
+2. Turn on your PS4 and connect it to your PC via ethernet.   
+       
+# Putting the goldhen or VTX payload on a usb        
+Format a usb drive to exFAT               
+Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
+Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
+Then plug the usb into your PS4         
+      
+# Setting up the PS4 internet connection  
+On your PS4  
+1. Go to **Settings** and then **Network**   
+2. Select **Set Up Internet connection** and choose Use a **LAN Cable**  
+3. Choose **Custom** setup and choose **PPPoE** for IP Address Settings  
+4. Put in anything as **Username** and ***Password*** it is recommended for it to be 1 letter that's the same in both fields for better compatibility.
+5. Choose **Automatic** for *DNS Settings* and *MTU Settings*
+6. Choose **Do not use** for *Proxy Server*   
+7. Go back and be ready to press on *Test internet connection*       
+       
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface      
 To find it you can look in        
@@ -130,7 +129,24 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 8. Python version is only available for sanity checks and in case of crazy situtations where Windows cannot run the C++ or Rust versions reliably.   
 9. Python version can be easily edited notepad++ and etc.          
 
-# Linux Instructions      
+# Linux Instructions   
+      
+# Putting the goldhen or VTX payload on a usb        
+Format a usb drive to exFAT               
+Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
+Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
+Then plug the usb into your PS4         
+      
+# Setting up the PS4 internet connection  
+On your PS4  
+1. Go to **Settings** and then **Network**   
+2. Select **Set Up Internet connection** and choose Use a **LAN Cable**  
+3. Choose **Custom** setup and choose **PPPoE** for IP Address Settings  
+4. Put in anything as **Username** and ***Password*** it is recommended for it to be 1 letter that's the same in both fields for better compatibility.
+5. Choose **Automatic** for *DNS Settings* and *MTU Settings*
+6. Choose **Do not use** for *Proxy Server*   
+7. Go back and be ready to press on *Test internet connection*       
+       
 1. In the directory where the files have been extracted open a terminal and run         
 ```
 sudo chmod 777 *
