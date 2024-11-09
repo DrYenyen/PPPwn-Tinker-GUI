@@ -129,7 +129,14 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 8. Python version is only available for sanity checks and in case of crazy situtations where Windows cannot run the C++ or Rust versions reliably.   
 9. Python version can be easily edited notepad++ and etc.          
 
-# Linux Instructions   
+# Linux Instructions  
+1. In the directory where the files have been extracted open a terminal and run         
+```
+sudo chmod 777 *
+```       
+2. Then double-click on PPPwn Tinker.bin                 
+3. Turn on your PS4 and connect it to your PC via ethernet.      
+       
       
 # Putting the goldhen or VTX payload on a usb        
 Format a usb drive to exFAT               
@@ -147,13 +154,7 @@ On your PS4
 6. Choose **Do not use** for *Proxy Server*   
 7. Go back and be ready to press on *Test internet connection*       
        
-1. In the directory where the files have been extracted open a terminal and run         
-```
-sudo chmod 777 *
-```       
-2. Then double-click on PPPwn Tinker.bin                 
-3. Turn on your PS4 and connect it to your PC via ethernet.      
-       
+
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface usually starts with "enp"          
 2. Select the firmware version your PS4 is on        
