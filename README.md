@@ -97,7 +97,7 @@ On your PS4
 # PPPwn-Tinker C++ Instructions            
 1. Choose your ethernet interface      
 To find it you can look in        
-Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
+Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and find the Description      
 2. Select the firmware version your PS4 is on        
 3. PPPwn version C++ is the default option       
 4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 type 4141:4141:4141:4141 in the custom ipv6 field.   
@@ -108,7 +108,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 # PPPwn-Tinker Rust Instructions
 1. Choose your ethernet interface          
 To find it you can look in         
-Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
+Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and find the Description      
 2. Select the firmware version your PS4 is on 
 3. To select the Rust version click on the dropdown menu and choose **Rust**    
 4. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**       
@@ -119,7 +119,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 # PPPwn-Tinker Python Instructions         
 1. Choose your ethernet interface          
 To find it you can look in         
-Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and fine the Description      
+Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the connection name scroll down and find the Description      
 2. Select the firmware version your PS4 is on     
 3. To select the Python version click on the dropdown menu and choose **Python**    
 4. Python does not have the option to change the ipv6.           
