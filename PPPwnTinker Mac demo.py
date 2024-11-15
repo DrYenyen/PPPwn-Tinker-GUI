@@ -3,6 +3,7 @@ from tkinter import ttk
 import os 
 import subprocess
 import re
+import sys
 from tkinter import filedialog
 import platform
 
@@ -119,7 +120,7 @@ def run_command():
             terminal_type = "xfce4"
 
         if selected_version == "C++":
-            command = f"sudo ./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
+            command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
             if terminal_type == "gnome":  
                 subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
@@ -150,15 +151,17 @@ def run_command():
                 subprocess.Popen(['bash', command])
 
     elif platform.system() == "Darwin":  # MacOS
+        os.chdir(os.path.dirname(sys.executable)) # fix path (thanks macOS!)
         if selected_version == "C++":
-            command = f"sudo ./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
-            subprocess.Popen(['open', 'Terminal', command])
+            command = f"./pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2 bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
         elif selected_version == "Rust":
-            command = f"sudo ./yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1=bins/{bin_selection}/stage1/stage1.bin --stage-2=bins/{bin_selection}/stage2/stage2.bin -r 100"
-            subprocess.Popen(['open', 'Terminal', command])
+            command = f"./yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1=bins/{bin_selection}/stage1/stage1.bin --stage-2=bins/{bin_selection}/stage2/stage2.bin -r 100"
         elif selected_version == "Python":
-            command = f"sudo python3 pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
-            subprocess.Popen(['open', 'Terminal', command])
+            result = subprocess.run(["which", "python3"], capture_output=True, text=True)   # get python3 executable and ask it to strip for us
+            pypath = result.stdout.strip() + " "
+            command = pypath + f"pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1 bins/{bin_selection}/stage1/stage1.bin --stage2=bins/{bin_selection}/stage2/stage2.bin"
+        command = f"sudo " + command
+        os.system(command)
 
 # Open Network Connections command idk just if someone wants it
 def net_command():
@@ -201,16 +204,15 @@ elif platform.system() == "Linux":
     interface_dropdown = ttk.Combobox(root, textvariable=interface_var, values=interfaces, state="readonly")
     interface_dropdown.bind("<<ComboboxSelected>>", update_dropdown)
     interface_dropdown.pack(pady=20)    
-elif platform.system() == "Linux":
+elif platform.system() == "Darwin":
     interface_dict = get_network_interfaces_unified()
     interface_var = tk.StringVar()
     interfaces = get_network_interfaces_unified()
     
     interface_dropdown = ttk.Combobox(root, textvariable=interface_var, values=interfaces, state="readonly")
     interface_dropdown.bind("<<ComboboxSelected>>", update_dropdown)
-    interface_dropdown.pack(pady=20)  
-
-
+    interface_dropdown.pack(pady=20)    
+       
 # Firmware Selection
 firmwaresList = ["1100", "1071", "1070", "1050", "1001", "1000", "960", "951", "950", "904", "903", "900", "852", "850", "803", "801", "800", "755", "751", "750", "702", "700"]
 sel_fw_label = tk.Label(root, text="Select Firmware:")
