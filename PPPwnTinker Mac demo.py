@@ -59,8 +59,13 @@ def update_dropdown(event):
     print(f'Selected Interface: {selected_interface}')
 
 # Choose which choices get saved
+def get_file_path(filename):
+    home_dir = os.path.expanduser("~")
+    return os.path.join(home_dir, filename)
+
 def save_user_choices():
-    with open('user_choices.txt', 'w') as file:
+    file_path = get_file_path('user_choices.txt')
+    with open(file_path, 'w') as file:
         file.write(f"{fw_select_as_text.get()}\n")
         file.write(f"{version_as_text.get()}\n")
         file.write(f"{spray_num.get()}\n")
@@ -70,10 +75,10 @@ def save_user_choices():
         file.write(f"{cipv6.get()}\n")
         file.write(f"{tick_padi.get()}\n")
 
-# Load saved choices
 def load_user_choices():
-    if os.path.exists('user_choices.txt'):
-        with open('user_choices.txt', 'r') as file:
+    file_path = get_file_path('user_choices.txt')
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
             lines = file.readlines()
             if len(lines) >= 8:
                 fw_select_as_text.set(lines[0].strip())
