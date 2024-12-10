@@ -12,7 +12,7 @@ This is because GUI  tools house the the exploit  which is known by security sof
 # PPPwn-Tinker-GUI
 PPPwn-Tkinter-GUI was crafted with the goal of extending the functionality of the current PPPwn solutions. By altering the way in which the exploit is deployed and run, one can increase reliability of **Scanning for corrupted object** to nearly 100%. This is often console-dependent, but it's better to experiment than not.
 
-This tool is open-source and provided as-is. Under the hood it utilizes new functionality added [to PPPwn_cpp by nn9dev](https://github.com/nn9dev) with the help of Borris_ta (and is also open source!) and additionally a [Rust rewrite made by fedebuonco](https://github.com/fedebuonco/YAPPPWN) that is quickly becoming a great way to run the exploit. It also allows you to run the [original version made by TheFlow](https://github.com/TheOfficialFloW/PPPwn/)     
+This tool is open-source and provided as-is. Under the hood it utilizes new functionality added [to PPPwn_cpp by nn9dev](https://github.com/nn9dev) with the help of Borris_ta (and is also open source!) and additionally a [Rust rewrite made by fedebuonco](https://github.com/fedebuonco/YAPPPWN) and the [original version made by TheFlow](https://github.com/TheOfficialFloW/PPPwn/)     
      
 Please be sure to read the instructions carefully, and happy tinkering!
        
