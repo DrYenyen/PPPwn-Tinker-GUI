@@ -212,7 +212,7 @@ and your console crashes try changing to the old IPV6
 [*] Waiting for interface to be ready...     
  Restart the exploit process   
  6. If you are on a newly set-up machine you may need to install the latest .Net framework            
- 7. For more see [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
+ 7. For more detailed steps vitis the [Troubleshooting page](https://github.com/DrYenyen/PPPwn-Tinker-GUI#troubleshooting)  
  8. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)            
       
 # Custom background   
