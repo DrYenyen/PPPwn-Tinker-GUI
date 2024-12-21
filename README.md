@@ -19,7 +19,7 @@ Please be sure to read the instructions carefully, and happy tinkering!
 Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases), grab the latest release and run pppwn --help to see the additional flags.       
 
 # Linux dependencies.
-1. Scapy only if using the Python version.       
+1. Scapy.     
      
 # Windows Dependencies needed are listed below for each version        
 # Installing Dependencies for C++ version     
