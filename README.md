@@ -9,7 +9,7 @@ This is because GUI  tools house the the exploit  which is known by security sof
 2. Turn on your PS4 and connect it to your PC via ethernet.         
       
 # Downloading the GUI MacOS           
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Linux version and extract all the files to your folder of choice        
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest MacOS version for your architechture Intel or Apple Silicon and extract all the files to your folder of choice        
 2. Turn on your PS4 and connect it to your PC via ethernet.      	  
 	  
 	
