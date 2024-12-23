@@ -156,38 +156,93 @@ On your PS4
        
 
 # PPPwn-Tinker C++ Instructions            
-1. Choose your ethernet interface usually starts with "enp"          
+1. Choose your ethernet interface usually starts with "en" or similair          
 2. Select the firmware version your PS4 is on        
 3. PPPwn version C++ is the default option       
 4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 type 4141:4141:4141:4141 in the custom ipv6 field.   
 5. You can tweak the Num settings in all 3 fields based on the instructions above. Or leave them blank to use the defaults.       
-6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**        
+6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection** 
+7. A new terminal will open and ask for your password put it in and the jailbreak process will begin.           
 7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)      
       
-	  
-	  
 # PPPwn-Tinker Rust Instructions        
-1. Choose your ethernet interface usually starts with "enp"              
+1. Choose your ethernet interface usually starts with "en" or similair                   
 2. Select the firmware version your PS4 is on            
 3. To select the Rust version click on the dropdown menu and choose **Rust**    
-4. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**       
-5. The Rust version will receive further improvements when possible.                
-5. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)             
+4. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**     
+5. A new terminal will open and ask for your password put it in and the jailbreak process will begin.  
+6. The Rust version will receive further improvements when possible.                
+7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)             
       
-   
 # PPPwn-Tinker Python Instructions             
-1. Choose your ethernet interface usually starts with "enp"            
+1. Choose your ethernet interface usually starts with "en" or similair                 
 2. Select the firmware version your PS4 is on                
 3. To select the Python version click on the dropdown menu and choose **Python**          
 4. Python does not have the option to change the ipv6.               
 5. Python does not have support for tweaking the Num values left blank or with writing in it will not result in errors or additions to the command.  
 6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**      
-7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)  
-8. Python version is only available for sanity checks and in case of crazy unheard of situtations where Linux cannot run the C++ or Rust versions reliably.     
-9. Python version can be easily edited via notepad++ and etc.  
+7. A new terminal will open and ask for your password put it in and the jailbreak process will begin.  
+8. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)  
+9. Python version is only available for sanity checks and in case of crazy unheard of situtations where Linux cannot run the C++ or Rust versions reliably.     
+10. Python version can be easily edited via notepad++ and etc.  
 
+# MacOS Instructions       
+1. After downloading and unpacking the release for your architechture (Intel or Apple silicon)     
+2. Open a terminal and cd to the location where you extracted the zip.   
+3. Run the following commands.    
+     
+```   
+chmod +x PPPwnTinker
+```    
+    
+```   
+chmod +x pppwn
+```    
+       
+4. Optionally if you want to try the Rust version.     
+```       
+chmod +x yapppwn   
+```         
+5. Right click on PPPwnTinker and choose open you will be prompted to confirm you want to run it choose *Open*     
+6. The GUI will open along with a new terminal.    
 
+# Putting the goldhen or VTX payload on a usb        
+Format a usb drive to exFAT               
+Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
+Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
+Then plug the usb into your PS4         
+      
+# Setting up the PS4 internet connection  
+On your PS4  
+1. Go to **Settings** and then **Network**   
+2. Select **Set Up Internet connection** and choose Use a **LAN Cable**  
+3. Choose **Custom** setup and choose **PPPoE** for IP Address Settings  
+4. Put in anything as **Username** and ***Password*** it is recommended for it to be 1 letter that's the same in both fields for better compatibility.
+5. Choose **Automatic** for *DNS Settings* and *MTU Settings*
+6. Choose **Do not use** for *Proxy Server*   
+7. Go back and be ready to press on *Test internet connection*      
 
+# PPPwn-Tinker MacOS C++ Instructions            
+1. Choose your ethernet interface usually starts with "en" or similair          
+2. Select the firmware version your PS4 is on        
+3. PPPwn version C++ is the default option       
+4. Usually not using the old IPV6 version is reccomended but if your console experienses crashes with no progress past Stage 2 type 4141:4141:4141:4141 in the custom ipv6 field.   
+5. You can tweak the Num settings in all 3 fields based on the instructions above. Or leave them blank to use the defaults.       
+6. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection** 
+7. A new terminal will open and ask for your password put it in and the jailbreak process will begin.           
+7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)      
+        
+# PPPwn-Tinker MacOS Rust Instructions        
+1. Choose your ethernet interface usually starts with "en" or similair                   
+2. Select the firmware version your PS4 is on            
+3. To select the Rust version click on the dropdown menu and choose **Rust**    
+4. You can press the **Run PPPwn** button and on your PS4 press on **Test internet connection**     
+5. A new terminal will open and ask for your password put it in and the jailbreak process will begin.  
+6. The Rust version will receive further improvements when possible.                
+7. See [Troubleshooting for help](https://github.com/DrYenyen/PPPwn-Troubleshooting)       
+
+# PPPwn-Tinker MacOS Python Instructions 
+1. Python has been excluded from the GUI while on MacOS to keep it simple to run and the python version does not provide benefits justify the setup.      
 
 # Quick Troubleshooting 
 0. If you get the PPPwned message but no goldhen reformat your usb drive or try another one.   
