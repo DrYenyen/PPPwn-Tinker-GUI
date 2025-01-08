@@ -81,7 +81,6 @@ pip install scapy
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925              
 3. Turn on your PS4 and connect it to your PC via ethernet. 		  
 4. Double-click on PPPwn Tinker.exe                       
-5. Turn on your PS4 and connect it to your PC via ethernet.   
     
 ## Putting the goldhen or VTX payload on a usb
 * From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.       
@@ -148,8 +147,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 ```
 sudo chmod 777 *
 ```       
-2. Then double-click on PPPwn Tinker.bin                 
-3. Turn on your PS4 and connect it to your PC via ethernet.      
+2. Then double-click on PPPwn Tinker.bin                    
        
       
 ## Putting the goldhen or VTX payload on a usb
