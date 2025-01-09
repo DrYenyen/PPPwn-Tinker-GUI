@@ -288,10 +288,7 @@ and your console crashes try changing to the old IPV6
  Restart the exploit process   
  6. If you are on a newly set-up machine you may need to install the latest .Net framework            
  7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)            
-      
-# Custom background   
-1. Latest release ships with no background but it can be set via the instructions below.                 
-2. The background in the GUI can be added with one of your choice it has to be in the "imgs" folder and be in "png" format 600x700 resolution and be named "background".              
+           
 
         
 # How to compile GUI source code Windows        
