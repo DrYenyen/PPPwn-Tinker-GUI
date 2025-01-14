@@ -18,12 +18,12 @@ Please be sure to read the instructions carefully, and happy tinkering!
        
 Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases), grab the latest release and run pppwn --help to see the additional flags.       
 
-## GOLDHEN PPPWN support     
+## GOLDHEN support     
 **Current supported versions**       
 *9.00*  *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
     
-## PS4HEN PPPWN support       
-*7.00* to *11.00* Goldhen will be used when available           
+## PS4HEN VTX support       
+*7.00* to *11.00* But Goldhen will be used when available           
 Although it has less features than goldhen PS4hen vtx is still good below are the differences       
 ![-](img/vtx.png)         	 
          
