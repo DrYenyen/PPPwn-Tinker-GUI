@@ -76,7 +76,7 @@ pip install scapy
 ```    
 
 ## Downloading the GUI     
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Windows version and extract all the files to your folder of choice                 
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/latest) download the latest Windows version and extract all the files to your folder of choice                 
 2. if Windows Defender flags the zip or any files allow them through.              
 This is because GUI  tools house the the exploit  which is known by security software https://hackerone.com/reports/2177925              
 3. Turn on your PS4 and connect it to your PC via ethernet. 		  
@@ -140,7 +140,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 1. Scapy.     
 
 ## Downloading the GUI Linux        
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest Linux version and extract all the files to your folder of choice        
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/latest) download the latest Linux version and extract all the files to your folder of choice        
 2. Turn on your PS4 and connect it to your PC via ethernet.         
 
 1. In the directory where the files have been extracted open a terminal and run         
@@ -203,7 +203,7 @@ On your PS4
 
 # macOS Instructions     
 ## Downloading the GUI macOS            
-1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases) download the latest macOS version for your architechture Intel or Apple Silicon and extract all the files to your folder of choice        
+1. Go to [Releases](https://github.com/DrYenyen/PPPwn-Tinker-GUI/releases/latest) download the latest macOS version for your architechture Intel or Apple Silicon and extract all the files to your folder of choice        
 2. Turn on your PS4 and connect it to your PC via ethernet.   
 3. After downloading and unpacking the release for your architechture (Intel or Apple silicon)     
 4. Open a terminal and cd to the location where you extracted the files.   
