@@ -4,9 +4,9 @@
 2. [GoldHEN Compatibility](#goldhen-pppwn-support)
 3. [PS4HEN Compatability](#ps4hen-pppwn-support)
 4. [GUI custom options](#how-to-use-the-new-options-corrupt-num-pin-num-and-spray-num)  
-5. [Windows Usage Instructions](#windows-instructions)    
-6. [Linux Usage Instructions](#linux-instructions)    
-7. [macOS Usage Instructions](#macos-instructions)       
+5. [Windows GUI Download and Usage Instructions](#windows-instructions)    
+6. [Linux GUI Download and  Usage Instructions](#linux-instructions)    
+7. [macOS GUI Download and  Usage Instructions](#macos-instructions)       
 8. [Troubleshooting](#troubleshooting)    
 
 # PPPwn-Tinker-GUI
