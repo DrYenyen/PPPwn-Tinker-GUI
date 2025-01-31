@@ -9,28 +9,54 @@ import platform
 
 def get_network_interfaces_unified():
     if platform.system() == "Windows":
-        # PowerShell command to get net adapters
-        localPSCommand = ["powershell", "-Command", "Get-NetAdapter | Select-Object InterfaceDescription, InterfaceGuid"]
-        result = subprocess.run(localPSCommand, capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
+        windows_version = platform.release()  
 
-        # Split the output into lines and remove the header lines
-        lines = result.stdout.strip().splitlines()[2:]
-        ifNames = []
-        ifIds = []
+        if windows_version == "7":
+            # PowerShell command to get net adapters
+            localPSCommand = ["powershell", "-Command", "Get-WmiObject Win32_NetworkAdapter | Select-Object Name, GUID"]
+            result = subprocess.run(localPSCommand, capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
 
-        # Regex pattern to match lines with the format: <description> <guid>
-        pattern = re.compile(r"^(.*)\s+({[A-F0-9-]+})$")
+            # Split the output into lines and remove the header lines
+            lines = result.stdout.strip().splitlines()[2:]
+            ifNames = []
+            ifIds = []
 
-        for line in lines:
-            match = pattern.match(line)
-            if match:
-                # Add the interface name and GUID to respective lists
-                ifNames.append(match.group(1).strip())
-                # Prepend the string "\Device\NPF_" to each GUID for compatibility
-                ifIds.append(r"\Device\NPF_" + match.group(2).strip())
-        # Bundle the names and GUIDs into a dictionary
-        interface_dict = dict(zip(ifNames, ifIds))
+            # Regex pattern to match lines with the format: <description> <guid>
+            pattern = re.compile(r"^(.*)\s+({[A-F0-9-]+})\s*$")
 
+            for line in lines:
+                match = pattern.match(line)
+                if match:
+                    # Add the interface name and GUID to respective lists
+                    ifNames.append(match.group(1).strip())
+                    # Prepend the string "\Device\NPF_" to each GUID for compatibility
+                    ifIds.append(r"\Device\NPF_" + match.group(2).strip())
+            # Bundle the names and GUIDs into a dictionary
+            interface_dict = dict(zip(ifNames, ifIds))
+
+        else:
+            # PowerShell command to get net adapters
+            localPSCommand = ["powershell", "-Command", "Get-NetAdapter | Select-Object InterfaceDescription, InterfaceGuid"]
+            result = subprocess.run(localPSCommand, capture_output=True, text=True, creationflags=subprocess.CREATE_NO_WINDOW)
+
+            # Split the output into lines and remove the header lines
+            lines = result.stdout.strip().splitlines()[2:]
+            ifNames = []
+            ifIds = []
+
+            # Regex pattern to match lines with the format: <description> <guid>
+            pattern = re.compile(r"^(.*)\s+({[A-F0-9-]+})$")
+
+            for line in lines:
+                match = pattern.match(line)
+                if match:
+                    # Add the interface name and GUID to respective lists
+                    ifNames.append(match.group(1).strip())
+                    # Prepend the string "\Device\NPF_" to each GUID for compatibility
+                    ifIds.append(r"\Device\NPF_" + match.group(2).strip())
+            # Bundle the names and GUIDs into a dictionary
+            interface_dict = dict(zip(ifNames, ifIds))
+            
     elif platform.system() == "Linux":   
         result = subprocess.run(['ip', 'link', 'show'], capture_output=True, text=True)
         interfaces = []
