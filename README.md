@@ -20,7 +20,7 @@ Furthermore, the pppwn_cpp additions can be integrated into other pppwn solution
 
 ## GOLDHEN support     
 **Current supported versions**       
-*9.00*  *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
+*9.00* *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
     
 ## PS4HEN VTX support       
 *7.00* to *11.00* But Goldhen will be used where available           
@@ -59,11 +59,11 @@ The reccomended HEX values are  0x1000, 0x1050, 0x1100, 0x1150, 0x1200, 0x1250 b
 ## Windows Dependencies needed are listed below for each version           
 * It is recommended to use C++ as the primary way of running the jailbreak.
 ### Dependencies for C++ version         
-1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.    
+1. Download and install [Npcap](https://npcap.com/#download) if running on older hardware try 1.70 and below.    
 ### Dependencies for Rust     
-1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.        
+1. Download and install [Npcap](https://npcap.com/#download) if running on older hardware try 1.70 and below.        
 ### Dependencies For Python version     
-1. Download and install [Npcap1.80](https://npcap.com/#download) if running on older hardware try 1.70 and below.       
+1. Download and install [Npcap](https://npcap.com/#download) if running on older hardware try 1.70 and below.       
 2. Download and install [Python](https://www.python.org/downloads/)        
 Make sure to add it to path and install as admin             
 ![-](python.PNG)         
@@ -83,7 +83,7 @@ This is because GUI  tools house the the exploit  which is known by security sof
 4. Double-click on PPPwn Tinker.exe                       
     
 ## Putting the goldhen or VTX payload on a usb
-* From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.       
+### From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.        
 1. Format a usb drive to exFAT               
 * Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
 * Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
@@ -136,7 +136,7 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 
 
 # Linux Instructions
-## Linux dependencies.   
+## Linux dependencies.     
 1. Scapy.     
 
 ## Downloading the GUI Linux        
@@ -145,13 +145,13 @@ Settings>Network & Internet>**Ethernet** on the left menu>Then Click on the conn
 
 1. In the directory where the files have been extracted open a terminal and run         
 ```
-sudo chmod 777 *
+sudo chmod -R 777 .
 ```       
 2. Then double-click on PPPwn Tinker.bin                    
        
       
 ## Putting the goldhen or VTX payload on a usb
-* From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.       
+### From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.        
 1. Format a usb drive to exFAT               
 * Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
 * Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
@@ -210,22 +210,13 @@ On your PS4
 5. Run the following commands.    
      
 ```   
-chmod +x PPPwnTinker
-```    
-    
-```   
-chmod +x pppwn
-```    
-       
-4. Optionally if you want to try the Rust version.     
-```       
-chmod +x yapppwn   
+sudo chmod -R 777 .
 ```         
-5. Right click on PPPwnTinker and choose open you will be prompted to confirm you want to run it choose *Open*     
-6. The GUI will open along with a new terminal.    
+4. Right click on PPPwnTinker and choose open you will be prompted to confirm you want to run it choose *Open*     
+5. The GUI will open along with a new terminal.    
 
 ## Putting the goldhen or VTX payload on a usb
-* From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.       
+### From inside the Goldhen and VTX folder grab the goldhen.bin or payload.bin corresponding to your firmware version.       
 1. Format a usb drive to exFAT               
 * Find the folder for your firmware and from inside of it copy the goldhen.bin file onto your usb drive  for Goldhen         
 * Find the folder for your firmware and from inside of it copy the payload.bin file onto your usb drive  For VTX        
@@ -289,24 +280,61 @@ and your console crashes try changing to the old IPV6
  6. If you are on a newly set-up machine you may need to install the latest .Net framework            
  7. Any further problems you can open an Issue if you'd like or contact me on Twitter [Dr.Yenyen](https://x.com/calmboy2019?t=eGJv6yJ4XvwogFCpV_T5SA&s=09)            
            
-
-        
+     
 # How to compile GUI source code Windows        
 1. Have python and npcap installed via the instructions above.        
-2. install pyinstaller copy the pyinstaller exe to the same folder as the source code.       
+2. install pyinstaller copy the pyinstaller exe to the same folder as the source code.
 3. CD into the folder via CMD and compile it using this command  (optional "--icon imgs/icon.ico" after --onefile)         
 ```             
-pyinstaller --noconsole --onefile PPPwnTinker.py 
+pyinstaller --onefile --noconsole --icon=imgs/icon.ico PPPwnTinker.py
 ```  
 4. [pyinstaller docs](https://pyinstaller.org/en/stable/)        
-5. Unless changed the GUI then requires the following folders and files        
+5. Unless changed the GUI then requires the following folders and files    
+* In the same folder as the compiled PPPwnTiker file create a folder called *pppwn*    
 * Bins Stage1 and Stage2 have to be in a folder path of firmware version followed by stage files example     
-* bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
-* bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
-* in the same folder as the GUI pppwn.exe by nn9dev the Rust rewrite by fedebuonco and TheFlow python pppwn.py and offsets.py all linked below     
+* pppwn/bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
+* pppwn/bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
+* in the pppwn folder place the C++ version by nn9dev (depending on your system) the Rust rewrite by fedebuonco (depending on your system) and TheFlow python pppwn.py and offsets.py all linked below   
 
 # How to compile GUI source code Linux    
-1. Coming soon
+1. Download source code from https://github.com/DrYenyen/PPPwn-Tinker-GUI/blob/main/PPPwnTinker.py
+2. Python, pip and Nuitka are required.
+```       
+python -m pip install --upgrade pip
+```  
+```            
+pip install nuitka
+```
+```    
+nuitka --onefile --enable-plugin=tk-inter PPPwnTinker.py
+```
+
+2. Unless changed the GUI then requires the following folders and files    
+* In the same folder as the compiled PPPwnTiker file create a folder called *pppwn*    
+* Bins Stage1 and Stage2 have to be in a folder path of firmware version followed by stage files example     
+* pppwn/bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
+* pppwn/bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
+* in the pppwn folder place the C++ version by nn9dev (depending on your system) the Rust rewrite by fedebuonco (depending on your system) and TheFlow python pppwn.py and offsets.py all linked below   
+
+# How to compile the GUI source code macOS
+1. Download source code from https://github.com/DrYenyen/PPPwn-Tinker-GUI/blob/main/PPPwnTinker.py
+2. Python, pip and pyinstaller are required.
+```       
+python -m pip install --upgrade pip
+```  
+```            
+pip install pyinstaller
+```       
+
+```            
+pyinstaller --onefile --target-arch=universal2 PPPwnTinker.py
+```  
+2. Unless changed the GUI then requires the following folders and files    
+* In the same folder as the compiled PPPwnTiker file create a folder called *pppwn*    
+* Bins Stage1 and Stage2 have to be in a folder path of firmware version followed by stage files example     
+* pppwn/bins/1100/stage1/stage1.bin (can be compiled from original POC by TheFlow linked below or can be downloaded elsewhere premade)
+* pppwn/bins/1100/stage2/stage2.bin (has to be the premade from Goldhen or VTX)      
+* in the pppwn folder place the C++ version by nn9dev (depending on your system) the Rust rewrite by fedebuonco (depending on your system) and TheFlow python pppwn.py and offsets.py all linked below   
 
 # For more useful guides and info 
 # [Visit ConsoleMods](https://consolemods.org/wiki/PS4:PS4_Mods_Wiki) 
@@ -315,6 +343,9 @@ pyinstaller --noconsole --onefile PPPwnTinker.py
 [TheOfficialFloW for PPPwn](https://github.com/TheOfficialFloW/PPPwn)              
 [xfangfang for C++ rewrite](https://github.com/xfangfang/PPPwn_cpp?tab=readme-ov-file)        
 [nn9dev for the C++ changes](https://github.com/nn9dev/PPPwn_cpp)        
-[fedebuonco for Rust Rewrite](https://github.com/fedebuonco)     
-[Borris-ta for his help](https://github.com/Borris-ta)        
-Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev.        
+[fedebuonco for Rust Rewrite](https://github.com/fedebuonco)  
+[EchoStretch for VTX hen](https://github.com/EchoStretch/ps4-hen-vtx)   
+[Sistro for GoldHEN](https://github.com/GoldHEN/GoldHEN)    
+[Borris-ta for his help](https://github.com/Borris-ta)            
+All the people in the scene :)    
+Thank you to Beta testers of the GUI Sausig, Rust, and nn9dev.          

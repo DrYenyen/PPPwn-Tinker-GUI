@@ -84,22 +84,35 @@ def get_network_interfaces_unified():
             # Bundle the names and GUIDs into a dictionary
             interface_dict = dict(zip(ifNames, ifIds))
 
-    elif platform.system() == "Linux":   
-        result = subprocess.run(['ip', 'link', 'show'], capture_output=True, text=True)
-        interfaces = []
-        for line in result.stdout.splitlines():
-            if ':' in line:
-                interface = line.split(':')[1].strip()
-                interfaces.append(interface)
-        return interfaces
+    elif platform.system() == "Linux":   # Changed but not much different
+        result = subprocess.run(['ip', '-o', 'link', 'show'], capture_output=True, text=True)
+        interface_dict = {}
 
-    elif platform.system() == "Darwin": 
-        result = subprocess.run(['ifconfig'], capture_output=True, text=True)
-        interfaces = []
         for line in result.stdout.splitlines():
-            if line.startswith('en') or line.startswith('eth'):
-                interfaces.append(line.split(':')[0])
-        return interfaces
+            parts = line.split(": ")
+            if len(parts) > 1:
+                interface_name = parts[1].split()[0]
+                interface_id = interface_name  
+                interface_dict[interface_name] = interface_id
+
+        return interface_dict
+
+    elif platform.system() == "Darwin": # Changed to show name instead of ID
+        result = subprocess.run(['networksetup', '-listallhardwareports'], capture_output=True, text=True)
+        interface_dict = {}
+        current_name = None
+
+        for line in result.stdout.splitlines():
+            line = line.strip()
+            if line.startswith("Hardware Port:"):
+                current_name = line.replace("Hardware Port: ", "").strip()
+            elif line.startswith("Device:"):
+                interface_id = line.replace("Device: ", "").strip()
+                if current_name and interface_id:
+                    interface_dict[current_name] = interface_id  
+                current_name = None  
+
+        return interface_dict
 
     else:
         notSupported = ["Platform not supported."]
@@ -246,6 +259,8 @@ def run_command():
                 subprocess.call(["start", "cmd", "/k", command], shell=True)  
 
     elif platform.system() == "Linux": # Linux command for different DE
+        selected_name = interface_var.get() 
+        selected_id = interface_dict.get(selected_name, selected_name)  
         terminal_type = None
         if os.path.exists("/usr/bin/konsole") or os.path.exists("/usr/local/bin/konsole"):
             terminal_type = "konsole"
@@ -255,7 +270,7 @@ def run_command():
             terminal_type = "xfce4"
 
         if selected_version == "C++":
-            command = f"sudo ./pppwn/pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2 pppwn/bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
+            command = f"sudo ./pppwn/pppwn --interface {selected_id} --fw {firmware_to_use} --stage1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2 pppwn/bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
             if terminal_type == "gnome":  
                 subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
@@ -265,7 +280,7 @@ def run_command():
             else:
                 subprocess.Popen(['bash', command])
         elif selected_version == "Rust":
-            command = f"sudo ./pppwn/yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage-2 pppwn/bins/{bin_selection}/stage2/stage2.bin -r 100"     
+            command = f"sudo ./pppwn/yapppwn --interface={selected_id} --fw={firmware_to_use} --stage-1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage-2 pppwn/bins/{bin_selection}/stage2/stage2.bin -r 100"     
             if terminal_type == "gnome":  
                 subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
@@ -275,7 +290,7 @@ def run_command():
             else:
                 subprocess.Popen(['bash', command])
         elif selected_version == "Python":
-            command = f"sudo python3 pppwn/pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1=pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2=pppwn/bins/{bin_selection}/stage2/stage2.bin"
+            command = f"sudo python3 pppwn/pppwn.py --interface={selected_id} --fw={firmware_to_use} --stage1=pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2=pppwn/bins/{bin_selection}/stage2/stage2.bin"
             if terminal_type == "gnome":  
                 subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', command + '; exec bash'])
             elif terminal_type == "konsole":
@@ -284,19 +299,28 @@ def run_command():
                 subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
             else:
                 subprocess.Popen(['bash', command])
+                
+    elif platform.system() == "Darwin":
+        selected_name = interface_var.get()
+        selected_id = interface_dict.get(selected_name, selected_name)
 
-    elif platform.system() == "Darwin": # macOS command
-        os.chdir(os.path.dirname(sys.executable)) # fix path (thanks macOS!)
         if selected_version == "C++":
-            command = f"./pppwn/pppwn --interface {interface_var.get()} --fw {firmware_to_use} --stage1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2 pppwn/bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
+            command = f"./pppwn/pppwn --interface {selected_id} --fw {firmware_to_use} --stage1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2 pppwn/bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
         elif selected_version == "Rust":
-            command = f"./pppwn/yapppwn --interface={interface_var.get()} --fw={firmware_to_use} --stage-1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage-2 pppwn/bins/{bin_selection}/stage2/stage2.bin -r 100"
+            command = f"./pppwn/yapppwn --interface={selected_id} --fw={firmware_to_use} --stage-1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage-2 pppwn/bins/{bin_selection}/stage2/stage2.bin -r 100"
         elif selected_version == "Python":
-            result = subprocess.run(["which", "python3"], capture_output=True, text=True)   # get python3 executable and ask it to strip for us
-            pypath = result.stdout.strip() + " "
-            command = pypath + f"pppwn/pppwn.py --interface={interface_var.get()} --fw={firmware_to_use} --stage1=pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2=pppwn/bins/{bin_selection}/stage2/stage2.bin"
-        command = f"sudo " + command
-        os.system(command)
+            result = subprocess.run(["which", "python3"], capture_output=True, text=True)  
+            pypath = result.stdout.strip()
+            command = f"{pypath} pppwn/pppwn.py --interface={selected_id} --fw={firmware_to_use} --stage1=pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2=pppwn/bins/{bin_selection}/stage2/stage2.bin"
+
+        command = f"sudo {command}"
+
+        subprocess.Popen([
+            "osascript", "-e",
+            f'tell application "Terminal" to activate do script "cd {os.path.dirname(sys.executable)} && {command}"'
+        ])
+
+
 
 # Open Network Connections command idk just if someone wants it :/
 def net_command():
@@ -351,15 +375,19 @@ elif platform.system() == "Darwin":
 root.configure(bg="#2E2E2E")
 
 # Icon for the GUI window
-icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "imgs", "icon.ico")
-if os.path.exists(icon_path):
-    if sys.platform.startswith("win"):  
+if platform.system() == "Windows":
+    icon_path = 'imgs/icon.ico'
+    if os.path.exists(icon_path):
         root.iconbitmap(icon_path)
-    else: 
-        icon_path_png = icon_path.replace(".ico", ".png")
-        if os.path.exists(icon_path_png):
-            img = PhotoImage(file=icon_path_png)
-            root.iconphoto(False, img)
+elif platform.system() == "Darwin":  # macOS
+    icon_path = 'imgs/icon.icns'
+    if os.path.exists(icon_path):
+        root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file=icon_path))
+else:  # Linux
+    icon_path = 'imgs/icon.png'
+    if os.path.exists(icon_path):
+        root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file=icon_path))
+
 
 # Background image for the GUI window
 if os.path.exists("imgs/background.png"):
@@ -375,7 +403,7 @@ style.configure("TLabel", background="#2E2E2E", foreground="#FFFFFF")
 style.configure("TButton", background="#4B4B4B", foreground="#FFFFFF")
 theme_var = tk.StringVar(value="Dark")
 
-# Interface Selection Windows loaded if on Windows
+# Interface Selection Windows loaded if on Windows 
 if platform.system() == "Windows":
     interface_dict = get_network_interfaces_unified()
     interfaces = list(interface_dict.keys())
@@ -386,25 +414,28 @@ if platform.system() == "Windows":
     interface_dropdown.bind("<<ComboboxSelected>>", on_select)
     interface_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
 
-elif platform.system() == "Linux": # Finally actually fixed
-    interfaces = get_network_interfaces_unified()
-    interface_dict = {iface: iface for iface in interfaces}  # Convert to dictionary
+# Names are the same so not much changed....
+elif platform.system() == "Linux":  # Finally actually fixed
+    interface_dict = get_network_interfaces_unified()
+    interfaces = list(interface_dict.keys()) 
     interface_var = tk.StringVar()
     interface_label = ttk.Label(root, text="Select Interface:")
     interface_label.pack()
     interface_dropdown = ttk.Combobox(root, textvariable=interface_var, values=interfaces, state="readonly")
-    interface_dropdown.bind("<<ComboboxSelected>>", update_dropdown)
+    interface_dropdown.bind("<<ComboboxSelected>>", lambda event: print(f'Selected Interface: {interface_var.get()}, ID: {interface_dict.get(interface_var.get())}'))
     interface_dropdown.pack(pady=(0, 5))  # Added padding
 
+# Names show up better now 
 elif platform.system() == "Darwin": # Finally actually fixed
     interface_dict = get_network_interfaces_unified()
+    interfaces = list(interface_dict.keys()) 
     interface_var = tk.StringVar()
     interface_label = ttk.Label(root, text="Select Interface:")
     interface_label.pack()
-    interfaces = get_network_interfaces_unified() 
     interface_dropdown = ttk.Combobox(root, textvariable=interface_var, values=interfaces, state="readonly")
-    interface_dropdown.bind("<<ComboboxSelected>>", update_dropdown)
-    interface_dropdown.pack(pady=(0, 5))  # Added padding for better spacing
+    interface_dropdown.bind("<<ComboboxSelected>>", lambda event: print(f'Selected Interface: {interface_var.get()}, ID: {interface_dict.get(interface_var.get())}'))
+    interface_dropdown.pack(pady=(0, 5))  # Added padding
+
        
 # Firmware Selection
 firmwaresList = ["1100", "1071", "1070", "1050", "1001", "1000", "960", "951", "950", "904", "903", "900", "852", "850", "803", "801", "800", "755", "751", "750", "702", "700"]
