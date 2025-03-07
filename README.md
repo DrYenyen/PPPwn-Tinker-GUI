@@ -18,6 +18,10 @@ Please be sure to read the instructions carefully, and happy tinkering!
        
 Furthermore, the pppwn_cpp additions can be integrated into other pppwn solutions (raspi, luckfox, etc.) with just a few extra command line arguments. Using [this fork](https://github.com/nn9dev/PPPwn_cpp/releases), grab the latest release and run pppwn --help to see the additional flags.       
 
+# Custom background   
+1. The GUI allows for a custom background 
+2. The empty background in the GUI can be swapped with one of your choice it has to be in the "imgs" folder and be in "png" format.
+
 ## GOLDHEN support     
 **Current supported versions**       
 *9.00* *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
