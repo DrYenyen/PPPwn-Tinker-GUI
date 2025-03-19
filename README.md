@@ -24,7 +24,7 @@ Furthermore, the pppwn_cpp additions can be integrated into other pppwn solution
 
 ## GOLDHEN support     
 **Current supported versions**       
-*9.00* *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
+*9.00* *9.03* *9.60* *10.00 10.01* *10.50* *10.70* *10.71* *11.00*              
     
 ## PS4HEN VTX support       
 *7.00* to *11.00* But Goldhen will be used where available           
