@@ -1,3 +1,5 @@
+Video guide for Windows: https://www.youtube.com/watch?v=6n3i2nM1DXg&t=9s
+
 ## Table of Contents
 
 1. [Introduction](#pppwn-tinker-gui)
