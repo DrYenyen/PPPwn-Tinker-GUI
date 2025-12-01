@@ -268,6 +268,8 @@ def run_command():
             terminal_type = "gnome"
         elif os.path.exists("/usr/bin/xfce4-terminal") or os.path.exists("/usr/local/bin/xfce4-terminal"):
             terminal_type = "xfce4"
+        elif os.path.exists("/usr/bin/ptyxis") or os.path.exists("/usr/local/bin/ptyxis"):
+            terminal_type = "ptyxis"
 
         if selected_version == "C++":
             command = f"sudo ./pppwn/pppwn --interface {selected_id} --fw {firmware_to_use} --stage1 pppwn/bins/{bin_selection}/stage1/stage1.bin --stage2 pppwn/bins/{bin_selection}/stage2/stage2.bin --spray-num {spray} --pin-num {pin} --corrupt-num {corrupt} --ipv6 fe80::{use_ipv6_str} {doNoWaitPadi} --auto-retry"
@@ -277,6 +279,8 @@ def run_command():
                 subprocess.Popen(['konsole', '--hold', '-e', command])
             elif terminal_type == "xfce4":
                 subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            elif terminal_type == "ptyxis":
+                subprocess.Popen(['ptyxis', '-e', 'bash', '-c', command + '; exec bash'])
             else:
                 subprocess.Popen(['bash', command])
         elif selected_version == "Rust":
@@ -287,6 +291,8 @@ def run_command():
                 subprocess.Popen(['konsole', '--hold', '-e', command])
             elif terminal_type == "xfce4":
                 subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            elif terminal_type == "ptyxis":
+                subprocess.Popen(['ptyxis', '-e', 'bash', '-c', command + '; exec bash'])
             else:
                 subprocess.Popen(['bash', command])
         elif selected_version == "Python":
@@ -297,6 +303,8 @@ def run_command():
                 subprocess.Popen(['konsole', '--hold', '-e', command])
             elif terminal_type == "xfce4":
                 subprocess.Popen(['xfce4-terminal', '--hold', '-e', command])
+            elif terminal_type == "ptyxis":
+                subprocess.Popen(['ptyxis', '-e', 'bash', '-c', command + '; exec bash'])
             else:
                 subprocess.Popen(['bash', command])
                 
